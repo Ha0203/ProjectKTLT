@@ -30,4 +30,4 @@ struct Year
     Year *next;
 };
 
-
+void createNewYear (Year *&lastYear);
