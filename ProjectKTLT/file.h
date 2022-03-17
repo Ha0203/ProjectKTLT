@@ -23,18 +23,11 @@ struct Class
     Class* next;
 };
 
-struct Term
-{
-    Class *firstClass;
-    string nameTerm;
-    Term *next;
-};
-
 struct Year
 {
-    Term *firstTerm;
+    Class *firstClass;
     string nameYear;
     Year *next;
 };
 
-
+void createNewYear (Year *&lastYear);
