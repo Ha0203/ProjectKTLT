@@ -26,7 +26,7 @@ void createAccount(Account*pAcc)
     curAcc = tmpAcc;
     tmpAcc->next = nullptr; 
 }
-bool login(Account*pAcc, Account*& userAcc)
+bool login(Account*pAcc, Account*&userAcc)
 {
     userAcc = new Account;
     Account* tmpAcc = pAcc;
@@ -38,7 +38,7 @@ bool login(Account*pAcc, Account*& userAcc)
         if (userAcc->username == tmpAcc->username && userAcc->password == tmpAcc->password)
             {
                 cout << "\n Login successful!";
-                //delete userAcc;
+                delete userAcc;
                 userAcc = tmpAcc;
                 return true;
             }

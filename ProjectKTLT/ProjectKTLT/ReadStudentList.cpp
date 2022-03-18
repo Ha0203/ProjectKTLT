@@ -1,140 +1,131 @@
 #include<iostream>
 #include<fstream>
+#include<sstream>
 #include"file.h"
 using namespace std;
 
-void readStudentListMain(Year*&firstYear)
+void readStudentListMain(Year*& firstYear)
 {
-	string tempt;
-	Year* curYear = nullptr;
-	Class* curClass = nullptr;
-	Student* curStudent = nullptr;
+	string tempt, row;
+	Year* curYear = firstYear, * prevYear = nullptr;
+	Class* curClass = nullptr, * prevClass = nullptr;
+	Student* curStudent = nullptr, * prevStudent = nullptr;
 	fstream input;
 	input.open("StudentListMain.csv", ios::in);
 	if (input.fail())
 	{
-		cout << "Can't file the find 'StudentListMain.csv'" << endl;
+		cout << "Can't find the file " << endl;
+		return;
 	}
-	while (input.good())
+	while (getline(input, row))
 	{
-		getline(input, tempt, ',');
+		stringstream ss(row);
+		getline(ss, tempt, ',');
 		if (firstYear == nullptr)
 		{
 			firstYear = new Year;
 			firstYear->nameYear = tempt;
 			firstYear->next = nullptr;
-			curYear = firstYear;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass = new Class;
 			firstYear->firstClass->nameClass = tempt;
 			firstYear->firstClass->next = nullptr;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent = new Student;
 			firstYear->firstClass->firstStudent->Number = tempt;
 			firstYear->firstClass->firstStudent->next = nullptr;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->studentID = tempt;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->firstName = tempt;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->lastName = tempt;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->gender = tempt;
-			getline(input, tempt, ',');
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->dateOfBirth = tempt;
-			getline(input, tempt);
+			getline(ss, tempt, ',');
 			firstYear->firstClass->firstStudent->socialID = tempt;
 			continue;
 		}
+		prevYear = nullptr;
 		curYear = firstYear;
-		while (curYear != nullptr)
+		while (curYear != nullptr && curYear->nameYear != tempt)
 		{
-			if (curYear->nameYear == tempt)
-			{
-				getline(input, tempt, ',');
-				curClass = curYear->firstClass;
-				while (curClass != nullptr)
-				{
-					if (curClass->nameClass == tempt)
-					{
-						curStudent = curClass->firstStudent;
-						while (curStudent != nullptr)
-						{
-							curStudent = curStudent->next;
-						}
-						curStudent = new Student;
-						curStudent->next = nullptr;
-						getline(input, tempt, ',');
-						curStudent->Number = tempt;
-						getline(input, tempt, ',');
-						curStudent->studentID = tempt;
-						getline(input, tempt, ',');
-						curStudent->firstName = tempt;
-						getline(input, tempt, ',');
-						curStudent->lastName = tempt;
-						getline(input, tempt, ',');
-						curStudent->gender = tempt;
-						getline(input, tempt, ',');
-						curStudent->dateOfBirth = tempt;
-						getline(input, tempt);
-						curStudent->socialID = tempt;
-						break;
-					}
-					curClass = curClass->next;
-				}
-				if (curClass == nullptr)
-				{
-					curClass = new Class;
-					curClass->next = nullptr;
-					curClass->nameClass = tempt;
-					curStudent = curClass->firstStudent;
-					curStudent->next = nullptr;
-					getline(input, tempt, ',');
-					curStudent->Number = tempt;
-					getline(input, tempt, ',');
-					curStudent->studentID = tempt;
-					getline(input, tempt, ',');
-					curStudent->firstName = tempt;
-					getline(input, tempt, ',');
-					curStudent->lastName = tempt;
-					getline(input, tempt, ',');
-					curStudent->gender = tempt;
-					getline(input, tempt, ',');
-					curStudent->dateOfBirth = tempt;
-					getline(input, tempt);
-					curStudent->socialID = tempt;
-				}
-				break;
-			}
+			prevYear = curYear;
 			curYear = curYear->next;
 		}
-		if (curYear == nullptr)
+		if (curYear==nullptr)
 		{
-			curYear = new Year;
+			prevYear->next = new Year;
+			curYear = prevYear->next;
 			curYear->next = nullptr;
 			curYear->nameYear = tempt;
-			curClass = curYear->firstClass;
-			curClass = new Class;
-			curClass->next = nullptr;
-			getline(input, tempt, ',');
-			curClass->nameClass = tempt;
-			curStudent = curClass->firstStudent;
-			curStudent->next = nullptr;
-			getline(input, tempt, ',');
-			curStudent->Number = tempt;
-			getline(input, tempt, ',');
-			curStudent->studentID = tempt;
-			getline(input, tempt, ',');
-			curStudent->firstName = tempt;
-			getline(input, tempt, ',');
-			curStudent->lastName = tempt;
-			getline(input, tempt, ',');
-			curStudent->gender = tempt;
-			getline(input, tempt, ',');
-			curStudent->dateOfBirth = tempt;
-			getline(input, tempt);
-			curStudent->socialID = tempt;
+			curYear->firstClass = nullptr;
 		}
+		getline(ss, tempt, ',');
+		prevClass = nullptr;
+		curClass = curYear->firstClass;
+		if (curYear->firstClass == nullptr)
+		{
+			curYear->firstClass = new Class;
+			curClass = curYear->firstClass;
+			curClass->nameClass = tempt;
+			curClass->next = nullptr;
+			curClass->firstStudent = nullptr;
+		}
+		else
+		{
+			while (curClass != nullptr && curClass->nameClass != tempt)
+			{
+				prevClass = curClass;
+				curClass = curClass->next;
+			}
+			if (curClass==nullptr)
+			{
+				prevClass->next = new Class;
+				curClass = prevClass -> next;
+				curClass->nameClass = tempt;
+				curClass->next = nullptr;
+				curClass->firstStudent = nullptr;
+			}
+		}
+		getline(ss, tempt, ',');
+		prevStudent = nullptr;
+		curStudent = curClass->firstStudent;
+		if(curClass->firstStudent==nullptr)
+		{
+			curClass->firstStudent = new Student;
+			curStudent = curClass->firstStudent;
+		}
+		else
+		{
+			while (curStudent != nullptr)
+			{
+				prevStudent = curStudent;
+				curStudent = curStudent->next;
+			}
+			if (prevStudent != nullptr)
+			{
+				prevStudent->next = new Student;
+				curStudent = prevStudent->next;
+			}
+			else curStudent = new Student;
+		}
+		curStudent->next = nullptr;
+		curStudent->Number = tempt;
+		getline(ss, tempt, ',');
+		curStudent->studentID = tempt;
+		getline(ss, tempt, ',');
+		curStudent->firstName = tempt;
+		getline(ss, tempt, ',');
+		curStudent->lastName = tempt;
+		getline(ss, tempt, ',');
+		curStudent->gender = tempt;
+		getline(ss, tempt, ',');
+		curStudent->dateOfBirth = tempt;
+		getline(ss, tempt, ',');
+		curStudent->socialID = tempt;
 	}
 	input.close();
 }
