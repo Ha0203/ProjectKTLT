@@ -3,39 +3,44 @@ using namespace std;
 
 #include "login.h"
 
-Account* createNewAccount(){
-    Account* newAccount = new Account;
-    newAccount->next = nullptr;
-    return newAccount;
-}
-void creatAccount(Account*pAcc)
+void createAccount(Account*pAcc)
 {
-    cout << "Type in your username";
-    cin >> pAcc->username;
-    for (Account* curAcc = pAcc; curAcc != null; curAcc = curAcc->next)
-        if (pAcc->username=curAcc->username)
+    Account* tmpAcc = new Account;
+    Account* curAcc;
+    cout << "\n Type in your username: ";
+    cin >> tmpAcc->username;
+    for (curAcc = pAcc; curAcc != nullptr; curAcc = curAcc->next)
+        if (tmpAcc->username == curAcc->username)
         {
-            cout << "Username has already been taken. Please try another one.";
-            cin >> pAcc->username;
+            cout << "\n Username has already been taken. Please try another one.";
+            cout << "\n Type in your username: ";
+            cin >> tmpAcc->username;
+            curAcc = pAcc;
         }
-        
-    cout << "\n Type in your password";
-    cin >> pAcc->password;
-    cout << "\n Type in 1 if you are an Academic staff member";
-    cout << "\n Type in 2 if you are a Student";
-    cin >> pAcc->type;
+    cout << "Username accepted!";
+    cout << "\n Type in your password: ";
+    cin >> tmpAcc->password;
+    cout << "\n Type in 1 if you are an Academic staff member.";
+    cout << "\n Type in 2 if you are a Student.";
+    cin >> tmpAcc->type;
+    curAcc = tmpAcc;
+    tmpAcc->next = nullptr; 
 }
-void login(User*pUser)
+bool login(Account*pAcc, Account*& userAcc)
 {
-    cout << "Type in your username";
-    cin >> pUser->usname;
-    cout << "Type in your password";
-    cin >> pUser->pass;
-}
-
-bool checkLogin(Account*pAcc, User*pUser)
-{
-    if (pUser->usname == pAcc->username && pUser->pass == pAcc->password)
-    return true
-    else return false
+    userAcc = new Account;
+    Account* tmpAcc = pAcc;
+    cout << "\n Type in your username: ";
+    cin >> userAcc->username;
+    cout << "\n Type in your password:";
+    cin >> userAcc->password;
+    for (tmpAcc = pAcc; tmpAcc != nullptr; tmpAcc = tmpAcc->next) 
+        if (userAcc->username == tmpAcc->username && userAcc->password == tmpAcc->password)
+            {
+                cout << "\n Login successful!";
+                userAcc = tmpAcc;
+                return true;
+            }
+        else cout << "\n Login failed.";
+        return false;
 }

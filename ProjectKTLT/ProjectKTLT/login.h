@@ -9,15 +9,6 @@ struct Account
     int type;
     Account* next;
 };
-struct User 
-{
-    string usname;
-    string pass;
-    User* next;
-};
 
-
-Account* createNewAccount();
-void creatAccount(Account*pAcc);
-void login(User*pUser);
-bool checkLogin(Account*pAcc, User*pUser);
+void createAccount(Account*pAcc);
+bool login(Account*pAcc, Account*& userAcc);
