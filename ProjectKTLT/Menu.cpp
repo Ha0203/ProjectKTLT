@@ -7,6 +7,7 @@ void Menu(Account* userAcc)
 	bool active;
 	if (userAcc->type == 1)
 	{
+	next:
 		cout << "Press 1 to \tCREATE A SCHOOL YEAR\n";
 		cout << "Press 2 to \tCREATE CLASS FOR 1ST YEAR STUDENT\n";
 		cout << "Press 3 to \tCREATE A SEMESTER\n";
@@ -24,7 +25,7 @@ void Menu(Account* userAcc)
 		cout << "Press 15 to \tUPDATE A STUDENT RESULT\n";
 		cout << "Press 16 to \tVIEW THE SCOREBOARD OF A CLASS\n";
 		cout << "Your choice: ";
-choose:
+	choose:
 		cin >> choice;
 		switch (choice)
 		{
@@ -98,14 +99,28 @@ choose:
 			goto choose;
 		}
 		}
+	again:
+		char dec;
+		cout << "Do you want to continue the program (Y/N)?";
+		cin >> dec;
+		if (dec == 'Y')
+			goto next;
+		else if (dec == 'N')
+			cout << "Thank your for using the program.";
+		else
+		{
+			cout << "Invalid choice! Please enter your choice again: ";
+			goto again;
+		}
 	}
 	else if (userAcc->type == 2)
 	{
+	next1:
 		cout << "Press 1 to \tENROLL IN A COURSE\n";
 		cout << "Press 2 to \tVIEW LIST OF ENROLLED COURSES\n";
 		cout << "Press 3 to \tREMOVE A COURSE\n";
 		cout << "Press 4 to \tVIEW SCOREBOARD\n";
-choose1:
+	choose1:
 		cout << "Your choice: ";
 		cin >> choice;
 		switch (choice)
@@ -129,6 +144,18 @@ choose1:
 		default:
 			cout << "Invalid choice! Please enter your choice again: ";
 			goto choose1;
+		}
+	again1:
+		cout << "Do you want to continue the program (Y/N)?";
+		cin >> dec;
+		if (dec == 'Y')
+			goto next1;
+		else if (dec == 'N')
+			cout << "Thank your for using the program.";
+		else
+		{
+			cout << "Invalid choice! Please enter your choice again: ";
+			goto again1;
 		}
 	}
 }
