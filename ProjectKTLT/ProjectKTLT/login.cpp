@@ -38,6 +38,7 @@ bool login(Account*pAcc, Account*& userAcc)
         if (userAcc->username == tmpAcc->username && userAcc->password == tmpAcc->password)
             {
                 cout << "\n Login successful!";
+                //delete userAcc;
                 userAcc = tmpAcc;
                 return true;
             }
