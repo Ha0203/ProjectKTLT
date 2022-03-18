@@ -93,24 +93,20 @@ void readStudentListMain(Year*& firstYear)
 		getline(ss, tempt, ',');
 		prevStudent = nullptr;
 		curStudent = curClass->firstStudent;
-		if(curClass->firstStudent==nullptr)
+		while (curStudent != nullptr)
 		{
-			curClass->firstStudent = new Student;
-			curStudent = curClass->firstStudent;
+			prevStudent = curStudent;
+			curStudent = curStudent->next;
+		}
+		if (prevStudent != nullptr)
+		{
+			prevStudent->next = new Student;
+			curStudent = prevStudent->next;
 		}
 		else
 		{
-			while (curStudent != nullptr)
-			{
-				prevStudent = curStudent;
-				curStudent = curStudent->next;
-			}
-			if (prevStudent != nullptr)
-			{
-				prevStudent->next = new Student;
-				curStudent = prevStudent->next;
-			}
-			else curStudent = new Student;
+				curClass->firstStudent = new Student;
+				curStudent = curClass->firstStudent;
 		}
 		curStudent->next = nullptr;
 		curStudent->Number = tempt;
