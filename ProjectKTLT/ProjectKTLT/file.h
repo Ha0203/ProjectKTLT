@@ -30,4 +30,4 @@ struct Year
     Year *next;
 };
 void readStudentListMain(Year*& firstYear);
-
+void createSchoolYear(Year* firstYear);
