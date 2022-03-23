@@ -1,0 +1,2 @@
+Read the student list from the main database
+Read the student list from file csv file that academic staff member adds

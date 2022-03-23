@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Menu.cpp" />
+    <ClCompile Include="CreateSchoolYear.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
@@ -147,6 +148,10 @@
   <ItemGroup>
     <ClInclude Include="file.h" />
     <ClInclude Include="login.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="21CLC10.csv" />
+    <None Include="StudentListMain.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

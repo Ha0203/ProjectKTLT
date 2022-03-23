@@ -1,26 +1,70 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 #include "file.h"
 using namespace std;
 
-void createSchoolYear(Year *firstYear)
+void createSchoolYear(Year *&firstYear)
 {
     //Đang cần 1 hàm đọc file csv cho năm học mới
     // Thêm 1 hàm để đẩy data ra file dữ liệu tổng
-    Year *newYear;
+    fstream input;
+    Year* newYear = new Year;
     Class *temp, *temp1; // temp dùng để lưu vị trí cuối cùng của danh sách lớp, temp1 dùng để tạo lớp mới
-    int i, n;
-
-    cout << "\n Nhập năm học: ";
+    int n;
+    cout << "\nInput the school year: ";
     cin >> newYear->nameYear;
     temp = newYear->firstClass = nullptr;
     do
     {
         temp1 = new Class;
-        cout << "\n Nhập tên lớp: ";
+        temp1->firstStudent = nullptr;
+        cout << "\nInput name of the class: ";
         cin >> temp1->nameClass;
         // Hàm đọc file student ở đây (chỉ có 1 lớp)
+        cout << "\nInput name of the file which stores information of students: ";
+        string filename;
+        cin >> filename;
+        input.open(filename.c_str(), ios::in);
+        while (input.fail())
+        {
+            cout << "\nInput name of the file which stores in formation of students: ";
+            cin >> filename;
+            input.open(filename.c_str(), ios::in);
+        }
+        string cell, row;
+        Student* curStudent = temp1->firstStudent;
+        while (getline(input, row))
+        {
+            stringstream ss(row);
+            if (temp1->firstStudent == nullptr)
+            {
+                temp1->firstStudent = new Student;
+                curStudent = temp1->firstStudent;
+            }
+            else
+            {
+                curStudent->next = new Student;
+                curStudent = curStudent->next;
+            }
+            curStudent->next = nullptr;
+            getline(ss, cell, ',');
+            curStudent->Number = cell;
+            getline(ss, cell, ',');
+            curStudent->studentID = cell;
+            getline(ss, cell, ',');
+            curStudent->firstName = cell;
+            getline(ss, cell, ',');
+            curStudent->lastName = cell;
+            getline(ss, cell, ',');
+            curStudent->gender = cell;
+            getline(ss, cell, ',');
+            curStudent->dateOfBirth = cell;
+            getline(ss, cell, ',');
+            curStudent->socialID = cell;
+        }
+        input.close();
         temp1->next = nullptr;
         if (temp == nullptr)
         {
@@ -32,8 +76,8 @@ void createSchoolYear(Year *firstYear)
             temp->next = temp1;
             temp = temp->next;
         }
-        cout << "\n Nhấn phím 1 để tạo lớp mới. ";
-        cout << "\n Nhấn phím 0 để thoát. ";
+        cout << "\nChoose 1 to create a new class. ";
+        cout << "\nChoose 0 to get out of this function. ";
         cin >> n;
     } while (n == 1);
     Year *tempYear = firstYear;

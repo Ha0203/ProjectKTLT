@@ -27,6 +27,9 @@
     <ClCompile Include="..\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreateSchoolYear.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h">
@@ -35,5 +38,13 @@
     <ClInclude Include="login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StudentListMain.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="21CLC10.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

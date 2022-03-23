@@ -63,4 +63,4 @@ struct Year
     Semester* firstSemester;
 };
 void readStudentListMain(Year*& firstYear);
-void createSchoolYear(Year* firstYear);
+void createSchoolYear(Year*& firstYear);

@@ -6,7 +6,9 @@ int main()
 {
 	Year* firstYear = nullptr;
 	readStudentListMain(firstYear);
-	cout << firstYear->firstClass->next->firstStudent->firstName << endl;
+	cout << firstYear->firstClass->firstStudent->next->firstName;
+	createSchoolYear(firstYear);
 	cout << "Member information" << endl;
+	cout << firstYear->next->firstClass->firstStudent->firstName;
 	return 0;
 }
