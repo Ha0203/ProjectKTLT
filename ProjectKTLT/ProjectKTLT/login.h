@@ -13,3 +13,4 @@ struct Account
 void createAccount(Account*pAcc);
 bool login(Account*pAcc, Account*& userAcc);
 void Menu(Account* userAcc);
+void changePassword(Account*pAcc);

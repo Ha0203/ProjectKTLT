@@ -23,6 +23,9 @@ void createAccount(Account*pAcc)
     cin >> tmpAcc->type;
     curAcc = tmpAcc;
     tmpAcc->next = nullptr; 
+    cout << "\n Account successfully created!";
+    cout << "\n Your account information:";
+    cout << "\n Username :" << curAcc->username << "\t Password: " << curAcc->password;
 }
 bool login(Account*pAcc, Account*&userAcc)
 {
@@ -42,4 +45,27 @@ bool login(Account*pAcc, Account*&userAcc)
             }
         else cout << "\n Login failed.";
         return false;
+}
+void changePassword(Account*& userAcc) 
+{
+    string temppass, checktemppass;
+    cout << "\n Type in your current password: ";
+    cin >> temppass;
+    while (temppass != userAcc->password) 
+    {
+        cout << "\n Wrong password! Please try again.";
+        cin >> temppass;
+    }
+    cout << "\n Type in your new password:";
+    cin >> temppass;
+    cout << "\n Type in your new password again: ";
+    cin >> checktemppass;
+    while (checktemppass != temppass) 
+    {
+        cout << "\n Wrong password! Please try again.";
+        cin >> checktemppass;
+    }
+    userAcc->password = checktemppass;
+    cout << "\n Password successfully changed!";
+    cout << "\n Your new password is: " << userAcc->password;    
 }
