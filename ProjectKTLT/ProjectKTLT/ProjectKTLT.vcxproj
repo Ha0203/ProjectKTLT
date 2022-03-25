@@ -144,6 +144,7 @@
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
+    <ClCompile Include="ViewCourses.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h" />

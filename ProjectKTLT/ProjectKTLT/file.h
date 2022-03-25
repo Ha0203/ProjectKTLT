@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -45,8 +45,10 @@ struct Course
     string courseName;
     string teacherName;
     int numberOfCredit;
+    int numberOfStudents;
     string session;
     courseClass* firstcourClass;
+    Course* next;
 };
 struct Semester
 {
@@ -62,5 +64,7 @@ struct Year
     Year *next;
     Semester* firstSemester;
 };
+Course* findPos(Course* courses);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
+void viewCourses(Course* courses);
