@@ -106,7 +106,7 @@ void Menu(Account* userAcc)
 		if (dec == 'Y')
 			goto next;
 		else if (dec == 'N')
-			cout << "Thank your for using the program.";
+			cout << "Thank you for using the program.";
 		else
 		{
 			cout << "Invalid choice! Please enter your choice again: ";

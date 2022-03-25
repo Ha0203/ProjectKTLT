@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include"login.h"
 using namespace std;
 
 
@@ -68,3 +69,5 @@ Course* findPos(Course* courses);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
 void viewCourses(Course* courses);
+void readUserList(Account*& pAcc);
+void Menu(Account* userAcc);
