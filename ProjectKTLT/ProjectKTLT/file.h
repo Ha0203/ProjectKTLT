@@ -48,7 +48,7 @@ struct Course
     int numberOfCredit;
     int numberOfStudents;
     string session;
-    courseClass* firstcourClass;
+    courseClass* firstcourseClass;
     Course* next;
 };
 struct Semester
@@ -57,6 +57,7 @@ struct Semester
     string startdate;
     string enddate;
     Course* firstCourse;
+    Semester* next;
 };
 struct Year
 {
