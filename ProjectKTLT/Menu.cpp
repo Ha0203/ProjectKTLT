@@ -1,10 +1,13 @@
-#include "ProjectKTLT/login.h"
 #include <iostream>
+#include"ProjectKTLT/login.h"
+#include"ProjectKTLT/file.h"
 using namespace std;
 void Menu(Account* userAcc)
 {
+	Year* firstYear = nullptr;
 	int choice;
 	bool active;
+	readStudentListMain(firstYear);
 	if (userAcc->type == 1)
 	{
 	next:
@@ -30,8 +33,7 @@ void Menu(Account* userAcc)
 		switch (choice)
 		{
 		case 1:
-			system("cls");
-
+			createSchoolYear(firstYear);
 			break;
 		case 2:
 			system("cls");

@@ -23,6 +23,12 @@ struct Class
     string nameClass;
     Class* next;
 };
+struct copyCourse
+{
+    string courseID;
+    string courseName;
+    string teacherName;
+};
 struct courseStudent
 {
     string Number;
@@ -32,6 +38,7 @@ struct courseStudent
     string gender;
     string dateOfBirth;
     string socialID;
+    copyCourse*firstCourse;
     courseStudent* next;
 };
 struct courseClass

@@ -7,11 +7,9 @@ using namespace std;
 
 void createSchoolYear(Year *&firstYear)
 {
-    //Đang cần 1 hàm đọc file csv cho năm học mới
-    // Thêm 1 hàm để đẩy data ra file dữ liệu tổng
     fstream input;
     Year* newYear = new Year;
-    Class *temp, *temp1; // temp dùng để lưu vị trí cuối cùng của danh sách lớp, temp1 dùng để tạo lớp mới
+    Class *temp, *temp1; 
     int n;
     cout << "\nInput the school year: ";
     cin >> newYear->nameYear;
@@ -22,7 +20,6 @@ void createSchoolYear(Year *&firstYear)
         temp1->firstStudent = nullptr;
         cout << "\nInput name of the class: ";
         cin >> temp1->nameClass;
-        // Hàm đọc file student ở đây (chỉ có 1 lớp)
         cout << "\nInput name of the file which stores information of students: ";
         string filename;
         cin >> filename;
@@ -85,5 +82,4 @@ void createSchoolYear(Year *&firstYear)
         tempYear = tempYear->next;
     tempYear->next = newYear;
     newYear->next = nullptr;
-    // Hàm lưu lại thay đổi data ở đây
 }
