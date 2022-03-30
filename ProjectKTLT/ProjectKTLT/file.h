@@ -79,3 +79,4 @@ void createSchoolYear(Year*& firstYear);
 void viewCourses(Course* courses);
 void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
+void updateClass(Year* firstYear);
