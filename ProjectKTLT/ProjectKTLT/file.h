@@ -23,6 +23,12 @@ struct Class
     string nameClass;
     Class* next;
 };
+struct copyCourse
+{
+    string courseID;
+    string courseName;
+    string teacherName;
+};
 struct courseStudent
 {
     string Number;
@@ -32,6 +38,7 @@ struct courseStudent
     string gender;
     string dateOfBirth;
     string socialID;
+    copyCourse*firstCourse;
     courseStudent* next;
 };
 struct courseClass
@@ -47,10 +54,14 @@ struct Course
     string teacherName;
     int numberOfCredit;
     int numberOfStudents;
+<<<<<<< HEAD
     string day1;
     string time1;
     string day2;
     string time2;
+=======
+    string session;
+>>>>>>> 4cefcb6e792fd194066f5cc51ad1d1b83cef750d
     courseClass* firstcourseClass;
     Course* next;
 };
@@ -60,6 +71,7 @@ struct Semester
     string startdate;
     string enddate;
     Course* firstCourse;
+    Semester* next;
 };
 struct Year
 {

@@ -15,7 +15,7 @@ void viewCourses(Course* courses)
 	Course* cur = courses;
 	while (courses)
 	{
-		cout << "STT\t"<< "Course ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
+		cout << "\nSTT\t"<< "Course ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
 		cout << i++<<'\t' << cur->courseID << '\t' << cur->courseName << '\t' << cur->teacherName << '\t' << cur->numberOfCredit << '\t' << cur->numberOfStudents<< '\t' << cur->session << endl;
 		cur = cur->next;
 	}
@@ -28,7 +28,7 @@ void update(Course* courses)
 	int choice;
 	while (courses)
 	{
-		cout << "Press " << i++ << " to update information of " << cur1->courseName << '\n';
+		cout << "\nPress " << i++ << " to update information of " << cur1->courseName << '\n';
 		cur1 = cur1->next;
 	}
 	cout << "Your choice: ";
@@ -39,7 +39,7 @@ void update(Course* courses)
 		cin >> choice;
 	}
 	Course* cur = findPos(courses, choice);
-	cout << "Course ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t" << "Session\n";
+	cout << "\nCourse ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t" << "Session\n";
 	cout << cur->courseID << '\t' << cur->courseName << '\t' << cur->teacherName << '\t' << cur->numberOfCredit << '\t' << cur->numberOfStudents<<'\t' << cur->session << endl;
 	cout << "Which information you want to change?";
 	cout << "Press 1 to change course ID.\n";
@@ -102,7 +102,7 @@ void deleteCourse(Course* courses)
 	int choice;
 	while (courses)
 	{
-		cout << "Press " << i++ << " to update information of " << cur1->courseName << '\n';
+		cout << "\nPress " << i++ << " to update information of " << cur1->courseName << '\n';
 		cur1 = cur1->next;
 	}
 	cout << "Your choice: ";
