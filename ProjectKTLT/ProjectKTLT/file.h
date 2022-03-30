@@ -58,7 +58,6 @@ struct Course
     string time1;
     string day2;
     string time2;
-    string session;
     courseClass* firstcourseClass;
     Course* next;
 };
