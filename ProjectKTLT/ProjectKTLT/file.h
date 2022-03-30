@@ -47,8 +47,11 @@ struct Course
     string teacherName;
     int numberOfCredit;
     int numberOfStudents;
-    string session;
-    courseClass* firstcourClass;
+    string day1;
+    string time1;
+    string day2;
+    string time2;
+    courseClass* firstcourseClass;
     Course* next;
 };
 struct Semester
