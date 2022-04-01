@@ -84,4 +84,4 @@ void update(Course* courses);
 void deleteCourse(Course* courses);
 void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
-void updateClass(Year* firstYear);
+void updateClass(Year*&firstYear);
