@@ -4,7 +4,6 @@
 #include"login.h"
 using namespace std;
 
-
 struct Student
 {
     string Number;
@@ -54,14 +53,10 @@ struct Course
     string teacherName;
     int numberOfCredit;
     int numberOfStudents;
-<<<<<<< HEAD
     string day1;
     string time1;
     string day2;
     string time2;
-=======
-    string session;
->>>>>>> 4cefcb6e792fd194066f5cc51ad1d1b83cef750d
     courseClass* firstcourseClass;
     Course* next;
 };
@@ -83,6 +78,8 @@ struct Year
 Course* findPos(Course* courses);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
+void createSemester(Semester *& firstSemester);
+void addCourse(Course *& firstCourse);
 void viewCourses(Course* courses);
 void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
