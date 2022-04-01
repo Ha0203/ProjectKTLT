@@ -16,7 +16,7 @@ void viewCourses(Course* courses)
 	while (courses)
 	{
 		cout << "\nSTT\t"<< "Course ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
-		cout << i++<<'\t' << cur->courseID << '\t' << cur->courseName << '\t' << cur->teacherName << '\t' << cur->numberOfCredit << '\t' << cur->numberOfStudents<< '\t' << cur->session << endl;
+		cout << i++<<'\t' << cur->courseID << '\t' << cur->courseName << '\t' << cur->teacherName << '\t' << cur->numberOfCredit << '\t' << cur->numberOfStudents<< '\t' << cur->day1 << ", "<< cur->time1 << " and " << cur->day2 << ", " << cur->time2 << endl;
 		cur = cur->next;
 	}
 }
@@ -84,10 +84,21 @@ choose:
 		cur->numberOfStudents = temp1;
 		break;
 	case 6:
-		cout << "Please enter the content you want to replace: ";
+		cout << "Please enter the content you want to replace for session 1: ";
+		cout << "Day: ";
 		cin.ignore();
 		getline(cin,temp);
-		cur->session = temp;
+		cur->day1 = temp;
+		cout << "Time: ";
+		getline(cin, temp);
+		cur->time1 = temp;
+		cout << "Please enter the content you want to replace for session 2: \n";
+		cout << "Day: ";
+		getline(cin, temp);
+		cur->day2 = temp;
+		cout << "Time: ";
+		getline(cin, temp);
+		cur->time2 = temp;
 		break;
 	default:
 		cout << "Invalid choice! Please enter your choice again: ";

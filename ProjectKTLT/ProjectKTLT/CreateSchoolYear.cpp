@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include "file.h"
+#include "login.h"
 using namespace std;
 
 void createSchoolYear(Year *&firstYear)
@@ -82,4 +83,86 @@ void createSchoolYear(Year *&firstYear)
         tempYear = tempYear->next;
     tempYear->next = newYear;
     newYear->next = nullptr;
+}
+
+
+void updateClass(Year*& firstYear)
+{
+    fstream input;
+    string name;
+    int n = 1;
+    do
+    {   if (n == 1)
+        {
+        cout << "\nChoose school year you want to update the class";
+        cin >> name;}
+        Year *tempyear;
+        Class *tempclass, *tempclass1; // tempclass để lưu vị trí tail của class năm đó , tempclass1 sẽ cập nhật class mới
+        tempyear = firstYear;
+        while ( tempyear != NULL && tempyear->nameYear != name)
+            tempyear = tempyear->next;
+        if (tempyear==nullptr) cout <<"\nThis year is not available";
+        else 
+        {
+            tempclass = tempyear->firstClass;
+            while (tempclass->next != NULL)
+                tempclass = tempclass->next;
+            tempclass1 = new Class;
+            tempclass1->firstStudent = nullptr;
+            cout << "\nInput name of the class: ";
+            cin >> tempclass1->nameClass;
+            //đọc dữ liệu học sinh tại đây nha Hà
+            cout << "\nInput name of the file which stores information of students: ";
+            string filename;
+            cin >> filename;
+            input.open(filename.c_str(), ios::in);
+            while (input.fail())
+            {
+                cout << "\nInput name of the file which stores in formation of students: ";
+                cin >> filename;
+                input.open(filename.c_str(), ios::in);
+            }
+            string cell, row;
+            Student* curStudent = tempclass1->firstStudent;
+            while (getline(input, row))
+            {
+                stringstream ss(row);
+                if (tempclass1->firstStudent == nullptr)
+                {
+                    tempclass1->firstStudent = new Student;
+                    curStudent = tempclass1->firstStudent;
+                }
+                else
+                {
+                    curStudent->next = new Student;
+                    curStudent = curStudent->next;
+                }
+                curStudent->next = nullptr;
+                getline(ss, cell, ',');
+                curStudent->Number = cell;
+                getline(ss, cell, ',');
+                curStudent->studentID = cell;
+                getline(ss, cell, ',');
+                curStudent->firstName = cell;
+                getline(ss, cell, ',');
+                curStudent->lastName = cell;
+                getline(ss, cell, ',');
+                curStudent->gender = cell;
+                getline(ss, cell, ',');
+                curStudent->dateOfBirth = cell;
+                getline(ss, cell, ',');
+                curStudent->socialID = cell;
+            }
+            input.close();
+            tempclass->next = tempclass1;
+            tempclass1->next = NULL;
+        }
+        
+        cout <<"\n Choose 1 to update a new class for other year";
+        cout <<"\n Choose 2 to update a new class for same year";
+        cout <<"\n Choose 0 to finish";
+        cin >> n; 
+
+    }
+    while (n != 0 );
 }
