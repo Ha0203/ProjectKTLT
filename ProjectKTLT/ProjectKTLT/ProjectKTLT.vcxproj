@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="..\Menu.cpp" />
     <ClCompile Include="CreateSchoolYear.cpp" />
+    <ClCompile Include="delete.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
     <ClCompile Include="ReadUserList.cpp" />
     <ClCompile Include="ViewCourses.cpp" />
+    <ClCompile Include="writeStudentListMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h" />

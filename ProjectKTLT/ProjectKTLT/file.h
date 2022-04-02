@@ -78,11 +78,11 @@ struct Year
 Course* findPos(Course* courses);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
-void createSemester(Semester *& firstSemester);
-void addCourse(Course *& firstCourse);
-void viewCourses(Course* courses);
+//void viewCourses(Course* courses);
 void update(Course* courses);
 void deleteCourse(Course* courses);
 void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
 void updateClass(Year*&firstYear);
+void writeStudentListMain(Year*& firstYear);
+void deleteAll(Year*& firstYear);

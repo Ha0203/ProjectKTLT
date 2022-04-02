@@ -36,6 +36,12 @@
     <ClCompile Include="ReadUserList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="writeStudentListMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h">

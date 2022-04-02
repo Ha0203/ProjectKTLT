@@ -3,3 +3,7 @@ Read the student list from the main database
 Read the student list from file csv file that academic staff member adds
 Read the list of user accounts and put it to the linked list
 Merge code
+---------------------------------------------------
+Fix bug in updateClass function
+Write the student list, update the latest data to csv file
+Delete all the linked list (Year, Class, Student) to prevent leaking memory
