@@ -80,6 +80,7 @@ struct Semester
     string nameSemester;
     string startdate;
     string enddate;
+    bool registSession = false;
     Course* firstCourse;
     Semester* next;
 };
@@ -93,6 +94,9 @@ struct Year
 Course* findPos(Year* year, int choice);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
+void createSemester(Semester*& firstSemester);
+void addCourse(Course*& firstCourse);
+void courseRegist(Semester*& firstSemester);
 void viewCourses(Year* year);
 void update(Year* year);
 void deleteCourse(Year* year);
