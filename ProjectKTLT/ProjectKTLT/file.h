@@ -75,12 +75,12 @@ struct Year
     Year *next;
     Semester* firstSemester;
 };
-Course* findPos(Course* courses);
+Course* findPos(Year* year, int choice);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
-//void viewCourses(Course* courses);
-void update(Course* courses);
-void deleteCourse(Course* courses);
+void viewCourses(Year* year);
+void update(Year* year);
+void deleteCourse(Year* year);
 void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
 void updateClass(Year*&firstYear);

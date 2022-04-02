@@ -2,11 +2,10 @@
 #include"ProjectKTLT/login.h"
 #include"ProjectKTLT/file.h"
 using namespace std;
-void Menu(Account* userAcc,Course* courses)
+void Menu(Account* userAcc)
 {
 	Year* firstYear = nullptr;
 	int choice;
-	bool active;
 	readStudentListMain(firstYear);
 	if (userAcc->type == 1)
 	{
@@ -45,15 +44,15 @@ void Menu(Account* userAcc,Course* courses)
 			break;
 		case 5:
 			system("cls");
-			viewCourses(courses);
+			viewCourses(firstYear);
 			break;
 		case 6:
 			system("cls");
-			update(courses);
+			update(firstYear);
 			break;
 		case 7:
 			system("cls");
-			deleteCourse(courses);
+			deleteCourse(firstYear);
 			break;
 		case 8:
 			system("cls");
