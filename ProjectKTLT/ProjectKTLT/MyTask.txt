@@ -7,3 +7,6 @@ Merge code
 Fix bug in updateClass function
 Write the student list, update the latest data to csv file
 Delete all the linked list (Year, Class, Student) to prevent leaking memory
+---------------------------------------------------
+Write the user list, update the latest user list data to csv file
+Delete all the user account

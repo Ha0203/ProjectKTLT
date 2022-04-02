@@ -1,6 +1,9 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include "file.h"
 using namespace std;
-#include "login.h"
 void createAccount(Account*pAcc)
 {
     Account* tmpAcc = new Account;

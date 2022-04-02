@@ -268,7 +268,6 @@ nextdelete2:
 	delete cur;
 }
 //#include "file.h"
-//#include "login.h"
 //
 //Course* findPos(Course* courses, int choice)
 //{

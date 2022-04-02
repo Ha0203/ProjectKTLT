@@ -42,12 +42,21 @@
     <ClCompile Include="delete.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="writeUserList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="deleteAllAcc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="viewMyCourse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="updatemyInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

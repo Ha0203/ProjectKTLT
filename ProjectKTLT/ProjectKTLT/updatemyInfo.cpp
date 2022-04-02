@@ -5,7 +5,7 @@
 #include "file.h"
 using namespace std;
 
-void deleteAll(Year*& firstYear)
+void updatemyInfo(Account* userAcc, Year* firstYear)
 {
 	Year* curYear = firstYear;
 	while (curYear != nullptr)
@@ -16,16 +16,15 @@ void deleteAll(Year*& firstYear)
 			Student* curStudent = curYear->firstClass->firstStudent;
 			while (curStudent != nullptr)
 			{
-				Student* tempStudent = curStudent;
+				if (curStudent->studentID == userAcc->username)
+				{
+					userAcc->myInfo = curStudent;
+					return;
+				}
 				curStudent = curStudent->next;
-				delete tempStudent;
 			}
-			Class* tempClass = curClass;
 			curClass = curClass->next;
-			delete tempClass;
 		}
-		Year* tempYear = curYear;
 		curYear = curYear->next;
-		delete tempYear;
 	}
 }

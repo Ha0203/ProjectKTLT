@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 #include "file.h"
-#include "login.h"
 using namespace std;
 
 void createSchoolYear(Year *&firstYear)

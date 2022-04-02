@@ -1,6 +1,8 @@
 #include <iostream>
-#include"login.h"
-#include"file.h"
+#include <fstream>
+#include <sstream>
+#include <string>
+#include "file.h"
 using namespace std;
 
 int main()

@@ -1,7 +1,8 @@
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include"file.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include "file.h"
 using namespace std;
 
 void readStudentListMain(Year*& firstYear)

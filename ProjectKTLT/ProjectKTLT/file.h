@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
-#include"login.h"
+#include "file.h"
 using namespace std;
 
 struct Student
@@ -15,7 +17,14 @@ struct Student
     string socialID;
     Student* next;
 };
-
+struct Account
+{
+    string username;
+    string password;
+    int type;
+    Student* myInfo;
+    Account* next;
+};
 struct Class
 {
     Student *firstStudent;
@@ -27,6 +36,12 @@ struct copyCourse
     string courseID;
     string courseName;
     string teacherName;
+    int numberOfCredit;
+    int numberOfStudents;
+    string day1;
+    string time1;
+    string day2;
+    string time2;
 };
 struct courseStudent
 {
@@ -85,4 +100,10 @@ void readUserList(Account*& pAcc);
 void Menu(Account* userAcc);
 void updateClass(Year*&firstYear);
 void writeStudentListMain(Year*& firstYear);
+void writeUserList(Account*& pAcc);
 void deleteAll(Year*& firstYear);
+void deleteAllAcc(Account*& pAcc);
+void createAccount(Account* pAcc);
+bool login(Account* pAcc, Account*& userAcc);
+void changePassword(Account* pAcc);
+//void updatemyInfo(Account* userAcc, Year* firstYear);
