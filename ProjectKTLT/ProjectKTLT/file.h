@@ -106,4 +106,4 @@ void deleteAllAcc(Account*& pAcc);
 void createAccount(Account* pAcc);
 bool login(Account* pAcc, Account*& userAcc);
 void changePassword(Account* pAcc);
-//void updatemyInfo(Account* userAcc, Year* firstYear);
+void updatemyInfo(Account* userAcc, Year* firstYear);

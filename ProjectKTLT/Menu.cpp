@@ -1,5 +1,8 @@
 #include <iostream>
-#include"ProjectKTLT/login.h"
+#include <fstream>
+#include <sstream>
+#include <string>
+using namespace std;
 #include"ProjectKTLT/file.h"
 using namespace std;
 void Menu(Account* userAcc)
@@ -10,18 +13,23 @@ void Menu(Account* userAcc)
 	if (userAcc->type == 1)
 	{
 	next:
-		cout << "\nPress 1 to \tCREATE A SCHOOL YEAR";
-		cout << "\nPress 2 to \tCREATE CLASS FOR 1ST YEAR STUDENT";
-		cout << "\nPress 3 to \tCREATE A SEMESTER";
-		cout << "\nPress 4 to \tCREATE A COURSE REGISTATION SESSION";
-		cout << "\nPress 5 to \tVIEW THE LIST OF COURSES";
-		cout << "\nPress 6 to \tUPDATE COURSE INFORMATION";
-		cout << "\nPress 7 to \tDELETE A COURSE";
-		cout << "\nPress 8 to \tEXPORT THE LIST OF STUDENTS IN A COURSE";
-		cout << "\nPress 9 to \tIMPORT THE SCOREBOARD OF A COURSE";
-		cout << "\nPress 10 to \tVIEW THE SCOREBOARD OF A COURSE";
-		cout << "\nPress 11 to \tUPDATE A STUDENT RESULT";
-		cout << "\nPress 12 to \tVIEW THE SCOREBOARD OF A CLASS";
+		cout << endl;
+		cout << "Press 1 to \tCREATE A SCHOOL YEAR AND UPDATE CLASS FOR THIS SCHOOLYEAR\n";
+		cout << "Press 2 to \tUPDATE CLASS FOR THE AVAILABLE YEAR\n";
+		cout << "Press 3 to \tCREATE A SEMESTER\n";
+		cout << "Press 4 to \tCREATE A COURSE REGISTATION SESSION\n";
+		cout << "Press 5 to \tVIEW THE LIST OF COURSE\n";
+		cout << "Press 6 to \tUPDATE COURSE INFORMATION\n";
+		cout << "Press 7 to \tDELETE A COURSE\n";
+		cout << "Press 8 to \tVIEW A LIST OF CLASSES\n";
+		cout << "Press 9 to \tVIEW A LIST OF STUDENTS IN A CLASS\n";
+		cout << "Press 10 to \tVIEW A LIST OF COURSES\n";
+		cout << "Press 11 to \tVIEW A LIST OF STUDENTS IN A COURSE";
+		cout << "Press 12 to \tEXPORT LIST OF STUDENT IN A COURSE\n";
+		cout << "Press 13 to \tIMPORT THE SCOREBOARD OF A COURSE\n";
+		cout << "Press 14 to \tVIEW THE SCOREBOARD OF A COURSE\n";
+		cout << "Press 15 to \tUPDATE A STUDENT RESULT\n";
+		cout << "Press 16 to \tVIEW THE SCOREBOARD OF A CLASS\n";
 		cout << "Your choice: ";
 	choose:
 		cin >> choice;
@@ -31,8 +39,7 @@ void Menu(Account* userAcc)
 			createSchoolYear(firstYear);
 			break;
 		case 2:
-			system("cls");
-
+			updateClass(firstYear);
 			break;
 		case 3:
 			system("cls");
@@ -87,7 +94,11 @@ void Menu(Account* userAcc)
 		if (dec == 'Y')
 			goto next;
 		else if (dec == 'N')
+		{
+			writeStudentListMain(firstYear);
+			deleteAll(firstYear);
 			cout << "\nThank you for using the program.";
+		}
 		else
 		{
 			cout << "\nInvalid choice! Please enter your choice again: ";
