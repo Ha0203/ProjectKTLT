@@ -3,7 +3,6 @@
 void createSemester(Semester*& firstSemester)
 {
     Semester *newSemester = new Semester;
-    newSemester->registSession;
     int choice;
     cout << "\nInput semester name: ";
     getline(cin, newSemester->nameSemester);
