@@ -107,6 +107,7 @@ void Menu(Account* userAcc)
 	}
 	else if (userAcc->type == 2)
 	{
+		updatemyInfo(userAcc, firstYear);
 	next1:
 		cout << "\nPress 1 to \tENROLL IN A COURSE";
 		cout << "\nPress 2 to \tVIEW THE LIST OF ENROLLED COURSES";
