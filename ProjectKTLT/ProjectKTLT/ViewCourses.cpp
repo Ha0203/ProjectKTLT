@@ -34,7 +34,6 @@ void viewCourses(Year* year)
 	else
 	{
 		cout << "Please enter the semester you want to access: ";
-	againnn:
 		cin.ignore();
 		getline(cin, semestertemp);
 		Semester* cur = cur1->firstSemester;
