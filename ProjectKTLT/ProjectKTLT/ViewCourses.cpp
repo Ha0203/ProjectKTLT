@@ -61,7 +61,7 @@ againn:
 		Course* cur2 = cur->firstCourse;
 		while (cur2)
 		{
-			cout << "\nSTT\t"<< "Course ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
+			cout << "\nSTT\t"<< "Course ID\t" << "Course Name\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
 			cout << i++<<'\t' << cur2->courseID << '\t' << cur2->courseName << '\t' << cur2->teacherName << '\t' << cur2->numberOfCredit << '\t' << cur2->numberOfStudents<< '\t' << cur2->day1 << ", "<< cur2->time1 << " and " << cur2->day2 << ", " << cur2->time2 << endl;
 			cur2 = cur2->next;
 		}

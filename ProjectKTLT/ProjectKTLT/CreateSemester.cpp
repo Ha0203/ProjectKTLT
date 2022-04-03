@@ -62,16 +62,8 @@ void addCourse(Course *& firstCourse)
     cout << "\nInput time of session 2: ";
     cin.ignore();
     getline(cin, newCourse->time2);
-    if (firstCourse == nullptr)
-    {
-        firstCourse = newCourse;
-        newCourse->next = nullptr;
-    }
-    else
-    {
-        newCourse->next = firstCourse;
-        firstCourse = newCourse;
-    }
+    newCourse->next = firstCourse;
+    firstCourse = newCourse;
 }
 
 
