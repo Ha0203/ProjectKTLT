@@ -1,0 +1,1 @@
+userAcc link to myInfo (thông tin của student đó)

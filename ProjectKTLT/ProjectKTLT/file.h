@@ -6,6 +6,18 @@
 #include "file.h"
 using namespace std;
 
+struct copyCourse
+{
+    string courseID;
+    string courseName;
+    string teacherName;
+    int numberOfCredit;
+    int numberOfStudents;
+    string day1;
+    string time1;
+    string day2;
+    string time2;
+};
 struct Student
 {
     string Number;
@@ -15,6 +27,7 @@ struct Student
     string gender;
     string dateOfBirth;
     string socialID;
+    copyCourse* firstCourse;
     Student* next;
 };
 struct Account
@@ -31,18 +44,6 @@ struct Class
     string nameClass;
     Class* next;
 };
-struct copyCourse
-{
-    string courseID;
-    string courseName;
-    string teacherName;
-    int numberOfCredit;
-    int numberOfStudents;
-    string day1;
-    string time1;
-    string day2;
-    string time2;
-};
 struct courseStudent
 {
     string Number;
@@ -52,7 +53,6 @@ struct courseStudent
     string gender;
     string dateOfBirth;
     string socialID;
-    copyCourse*firstCourse;
     courseStudent* next;
 };
 struct courseClass
