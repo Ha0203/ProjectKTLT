@@ -5,10 +5,13 @@ void createSemester(Semester*& firstSemester)
     Semester *newSemester = new Semester;
     int choice;
     cout << "\nInput semester name: ";
+    cin.ignore();
     getline(cin, newSemester->nameSemester);
     cout << "\nInput start date: ";
+    cin.ignore();
     getline(cin, newSemester->startdate);
     cout << "\nInput end date: ";
+    cin.ignore();
     getline(cin, newSemester->enddate);
     newSemester->firstCourse = nullptr;
     do {
@@ -35,22 +38,29 @@ void addCourse(Course *& firstCourse)
     Course *newCourse = new Course;
     newCourse->firstcourseClass = nullptr;
     cout << "\nInput course ID: ";
+    cin.ignore();
     getline(cin, newCourse->courseID);
     cout << "\nInput course name: ";
+    cin.ignore();
     getline(cin, newCourse->courseName);
     cout << "\nInput teacher name: ";
+    cin.ignore();
     getline(cin, newCourse->teacherName);
     cout << "\nInput number of credits: ";
     cin >> newCourse->numberOfCredit;
     cout << "\nInput the maximum number of students in the course: ";
     cin >> newCourse->numberOfStudents;
     cout << "\nInput day of session 1: ";
+    cin.ignore();
     getline(cin, newCourse->day1);
     cout << "\nInput time of session 1: ";
+    cin.ignore();
     getline(cin, newCourse->time1);
     cout << "\nInput day of session 2: ";
+    cin.ignore();
     getline(cin, newCourse->day2);
     cout << "\nInput time of session 2: ";
+    cin.ignore();
     getline(cin, newCourse->time2);
     if (firstCourse == nullptr)
     {
