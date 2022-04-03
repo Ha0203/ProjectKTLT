@@ -10,11 +10,9 @@ Course* findPos(Course* courses, int choice)
 
 void viewCourses(Year* year)
 {
-	int i = 1;
 	string yeartemp;
 	string semestertemp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
-againn:
 	cin.ignore();
 	getline(cin, yeartemp);
 	Year* cur1 = year;
@@ -30,8 +28,8 @@ againn:
 	}
 	if (exist == false)
 	{
-		cout << "Invalid year! Please enter your choice again: ";
-		goto againn;
+		cout << "Invalid year! Please try again.";
+		return;
 	}
 	else
 	{
@@ -39,30 +37,34 @@ againn:
 	againnn:
 		cin.ignore();
 		getline(cin, semestertemp);
-		int selection = 0;
-		switch (stoi(semestertemp))
-		{
-		case 1:
-			selection = 1;
-		case 2:
-			selection = 2;
-		case 3:
-			selection = 3;
-		default:
-			cout << "Invalid semester! Please enter your choice again: ";
-			goto againnn;
-		}
 		Semester* cur = cur1->firstSemester;
-		while (selection == 0)
-		{
-			selection--;
+		while (cur && cur->nameSemester != semestertemp)
 			cur = cur->next;
+		if (!cur)
+		{
+			cout << "\nInvalid semester! Please try again";
 		}
+		system("cls");
+		cout << "\n\t\t\t\t------------------LIST OF COURSES------------------\n\n";
+		cout << setw(14) << left << "Course ID";
+		cout << setw(26) << left << "Course Name";
+		cout << setw(11) << left << "Credit";
+		cout << setw(13) << left << "Students";
+		cout << setw(15) << left << "Session 1";
+		cout << setw(15) << left << "Session 2";
+		cout << "Teacher";
+		cout << endl;
 		Course* cur2 = cur->firstCourse;
 		while (cur2)
 		{
-			cout << "\nSTT\t"<< "Course ID\t" << "Course Name\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t"<<"Session\n";
-			cout << i++<<'\t' << cur2->courseID << '\t' << cur2->courseName << '\t' << cur2->teacherName << '\t' << cur2->numberOfCredit << '\t' << cur2->numberOfStudents<< '\t' << cur2->day1 << ", "<< cur2->time1 << " and " << cur2->day2 << ", " << cur2->time2 << endl;
+			cout << setw(14) << left << cur2->courseID;
+			cout << setw(26) << left << cur2->courseName;
+			cout << setw(11) << left << cur2->numberOfCredit;
+			cout << setw(13) << left << cur2->numberOfStudents;
+			cout << setw(15) << left << cur2-> session1;
+			cout << setw(15) << left << cur2->session2;
+			cout << cur2->teacherName;
+			cout << endl;
 			cur2 = cur2->next;
 		}
 	}
@@ -90,31 +92,19 @@ onemoretime:
 	}
 	if (exist == false)
 	{
-		cout << "Invalid year! Please enter your choice again: ";
-		goto onemoretime;
+		cout << "Invalid year! Please try again.";
+		return;
 	}
 	cout << "Please enter the semester you want to access: ";
-onemoretime1:
 	cin.ignore();
 	getline(cin, semestertemp);
-	int selection = 0;
-	switch (stoi(semestertemp))
-	{
-	case 1:
-		selection = 1;
-	case 2:
-		selection = 2;
-	case 3:
-		selection = 3;
-	default:
-		cout << "Invalid semester! Please enter your choice again: ";
-		goto onemoretime1;
-	}
 	Semester* cur3 = cur1->firstSemester;
-	while (selection == 0)
+	while (cur3 && cur3->nameSemester != semestertemp)
+		cur3=cur3->next;
+	if (cur3 == nullptr)
 	{
-		selection--;
-		cur3 = cur3->next;
+		cout << "Invalid semester! Please try again.";
+		return;
 	}
 	Course* cur2 = cur3->firstCourse;
 	int choice;
@@ -131,8 +121,26 @@ onemoretime1:
 		cin >> choice;
 	}
 	Course* cur = findPos(cur3->firstCourse, choice);
-	cout << "\nCourse ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t" << "Session\n";
-	cout << cur->courseID << '\t' << cur->courseName << '\t' << cur->teacherName << '\t' << cur->numberOfCredit << '\t' << cur->numberOfStudents<<'\t' << cur->day1 <<", "<<cur->time1<<" " << cur->day2<<", "<<cur->time2 << endl;
+	
+	system("cls");
+	cout << "\n\t\t\t\t------------------COURSES INFORMATION------------------\n\n";
+	cout << setw(14) << left << "Course ID";
+	cout << setw(26) << left << "Course Name";
+	cout << setw(11) << left << "Credit";
+	cout << setw(13) << left << "Students";
+	cout << setw(15) << left << "Session 1";
+	cout << setw(15) << left << "Session 2";
+	cout << "Teacher";
+	cout << endl;
+	cout << setw(14) << left << cur->courseID;
+	cout << setw(26) << left << cur->courseName;
+	cout << setw(11) << left << cur->numberOfCredit;
+	cout << setw(13) << left << cur->numberOfStudents;
+	cout << setw(15) << left << cur->session1;
+	cout << setw(15) << left << cur->session2;
+	cout << cur->teacherName;
+	cout << endl;
+
 	cout << "Which information you want to change?";
 	cout << "Press 1 to change course ID.\n";
 	cout << "Press 2 to change course name.\n";
@@ -177,20 +185,12 @@ choose:
 		break;
 	case 6:
 		cout << "Please enter the content you want to replace for session 1: ";
-		cout << "Day: ";
 		cin.ignore();
 		getline(cin,temp);
-		cur->day1 = temp;
-		cout << "Time: ";
-		getline(cin, temp);
-		cur->time1 = temp;
+		cur->session1 = temp;
 		cout << "Please enter the content you want to replace for session 2: \n";
-		cout << "Day: ";
 		getline(cin, temp);
-		cur->day2 = temp;
-		cout << "Time: ";
-		getline(cin, temp);
-		cur->time2 = temp;
+		cur->session2 = temp;
 		break;
 	default:
 		cout << "Invalid choice! Please enter your choice again: ";
@@ -221,37 +221,25 @@ nextdelete:
 	if (exist == false)
 	{
 		cout << "Invalid year! Please enter your choice again: ";
-		goto nextdelete;
+		return;
 	}
 	cout << "Please enter the semester you want to access: ";
-nextdelete2:
 	cin.ignore();
 	getline(cin, semestertemp);
-	int selection = 0;
-	switch (stoi(semestertemp))
-	{
-	case 1:
-		selection = 1;
-	case 2:
-		selection = 2;
-	case 3:
-		selection = 3;
-	default:
-		cout << "Invalid semester! Please enter your choice again: ";
-		goto nextdelete2;
-	}
 	Semester* cur2 = cur1->firstSemester;
-	while (selection == 0)
+	while (cur2 && cur2->nameSemester != semestertemp)
+		cur2 = cur2->next;
+	if (cur2 == nullptr)
 	{
-		selection--;
-		cur1 = cur1->next;
+		cout << "Invalid Semester! Please try again.";
+		return;
 	}
 	Course* cur3 =cur2->firstCourse ;
 	int choice;
 	while (cur3)
 	{
-		cout << "\nPress " << i++ << " to update information of " << cur3->courseName << '\n';
-		cur1 = cur1->next;
+		cout << "\nPress " << i++ << " to delete " << cur3->courseName << '\n';
+		cur3 = cur3->next;
 	}
 	cout << "Your choice: ";
 	cin >> choice;
@@ -263,7 +251,7 @@ nextdelete2:
 	Course* cur = findPos(cur2->firstCourse, choice);
 	Course* temp = nullptr;
 	for (temp =cur2->firstCourse; temp->next != cur; temp = temp->next);
-		temp->next = cur->next;
+	temp->next = cur->next;
 	delete cur;
 }
 //#include "file.h"

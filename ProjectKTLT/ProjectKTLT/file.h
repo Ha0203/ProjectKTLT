@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -91,7 +92,7 @@ struct Year
     Year *next;
     Semester* firstSemester;
 };
-Course* findPos(Year* year, int choice);
+Course* findPos(Course* year, int choice);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
 void createSemester(Semester*& firstSemester);
