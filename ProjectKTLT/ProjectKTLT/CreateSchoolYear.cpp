@@ -96,7 +96,7 @@ void updateClass(Year*& firstYear)
         cout << "\nChoose school year you want to update the class";
         cin >> name;}
         Year *tempyear;
-        Class *tempclass, *tempclass1; // tempclass để lưu vị trí tail của class năm đó , tempclass1 sẽ cập nhật class mới
+        Class *tempclass, *tempclass1;
         tempyear = firstYear;
         while ( tempyear != NULL && tempyear->nameYear != name)
             tempyear = tempyear->next;
@@ -110,7 +110,6 @@ void updateClass(Year*& firstYear)
             tempclass1->firstStudent = nullptr;
             cout << "\nInput name of the class: ";
             cin >> tempclass1->nameClass;
-            //đọc dữ liệu học sinh tại đây nha Hà
             cout << "\nInput name of the file which stores information of students: ";
             string filename;
             cin >> filename;

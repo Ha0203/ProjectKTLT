@@ -141,8 +141,10 @@
   <ItemGroup>
     <ClCompile Include="..\Menu.cpp" />
     <ClCompile Include="CreateSchoolYear.cpp" />
+    <ClCompile Include="CreateSemester.cpp" />
     <ClCompile Include="delete.cpp" />
     <ClCompile Include="deleteAllAcc.cpp" />
+    <ClCompile Include="enrollCourse.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
