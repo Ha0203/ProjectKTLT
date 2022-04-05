@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -15,6 +16,7 @@ struct copyCourse
     int numberOfStudents;
     string session1;
     string session2;
+    copyCourse* next;
 };
 struct Student
 {
@@ -25,7 +27,7 @@ struct Student
     string gender;
     string dateOfBirth;
     string socialID;
-    copyCourse* firstCourse;
+    copyCourse* firstCourse = nullptr;
     Student* next;
 };
 struct Account
@@ -53,12 +55,6 @@ struct courseStudent
     string socialID;
     courseStudent* next;
 };
-struct courseClass
-{
-    courseStudent* firstcourseStudent;
-    string namecourseClass;
-    courseClass* next;
-};
 struct Course
 {
     string courseID;
@@ -68,7 +64,7 @@ struct Course
     int numberOfStudents;
     string session1;
     string session2;
-    courseClass* firstcourseClass;
+    courseStudent* firstcourseStudent;
     Course* next;
 };
 struct Semester
@@ -87,7 +83,7 @@ struct Year
     Year *next;
     Semester* firstSemester;
 };
-Course* findPos(Year* year, int choice);
+Course* findPos(Course* year, int choice);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
 void createSemester(Semester*& firstSemester);
