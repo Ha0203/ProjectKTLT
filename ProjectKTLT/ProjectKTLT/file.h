@@ -13,10 +13,8 @@ struct copyCourse
     string teacherName;
     int numberOfCredit;
     int numberOfStudents;
-    string day1;
-    string time1;
-    string day2;
-    string time2;
+    string session1;
+    string session2;
 };
 struct Student
 {
@@ -68,10 +66,8 @@ struct Course
     string teacherName;
     int numberOfCredit;
     int numberOfStudents;
-    string day1;
-    string time1;
-    string day2;
-    string time2;
+    string session1;
+    string session2;
     courseClass* firstcourseClass;
     Course* next;
 };

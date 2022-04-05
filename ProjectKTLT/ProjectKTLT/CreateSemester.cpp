@@ -1,6 +1,6 @@
 #include "file.h"
 
-void createSemester(Semester*& firstSemester)
+void createSemester(Year*& firstYear)
 {
     Semester *newSemester = new Semester;
     int choice;
@@ -21,15 +21,15 @@ void createSemester(Semester*& firstSemester)
         cout << "\nYour choice: ";
         cin >> choice;
     } while (choice == 1);
-    if (firstSemester == nullptr) 
+    if (firstYear->firstSemester == nullptr) 
     {
-        firstSemester = newSemester;
+        firstYear->firstSemester = newSemester;
         newSemester->next = nullptr;
     }
     else
     {
-        newSemester->next = firstSemester;
-        firstSemester = newSemester;
+        newSemester->next = firstYear->firstSemester;
+        firstYear->firstSemester = newSemester;
     }
 }
 
@@ -50,18 +50,12 @@ void addCourse(Course *& firstCourse)
     cin >> newCourse->numberOfCredit;
     cout << "\nInput the maximum number of students in the course: ";
     cin >> newCourse->numberOfStudents;
-    cout << "\nInput day of session 1: ";
+    cout << "\nInput session 1 of this course: ";
     cin.ignore();
-    getline(cin, newCourse->day1);
-    cout << "\nInput time of session 1: ";
+    getline(cin, newCourse->session1);
+    cout << "\nInput session 2 of this course: ";
     cin.ignore();
-    getline(cin, newCourse->time1);
-    cout << "\nInput day of session 2: ";
-    cin.ignore();
-    getline(cin, newCourse->day2);
-    cout << "\nInput time of session 2: ";
-    cin.ignore();
-    getline(cin, newCourse->time2);
+    getline(cin, newCourse->session2);
     newCourse->next = firstCourse;
     firstCourse = newCourse;
 }
