@@ -93,7 +93,7 @@ void updateClass(Year*& firstYear)
     do
     {   if (n == 1)
         {
-        cout << "\nChoose school year you want to update the class";
+        cout << "\nChoose school year you want to update the class: ";
         cin >> name;}
         Year *tempyear;
         Class *tempclass, *tempclass1;

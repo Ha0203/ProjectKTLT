@@ -159,8 +159,18 @@
     <ClInclude Include="file.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="21CLC10.csv" />
+    <None Include="21CLC02.csv" />
+    <None Include="22CLC01.csv" />
+    <None Include="22CLC02.csv" />
+    <None Include="22CLC03.csv" />
+    <None Include="23CLC01.csv" />
+    <None Include="23CLC02.csv" />
+    <None Include="23CLC03.csv" />
+    <None Include="24CLC01.csv" />
+    <None Include="24CLC02.csv" />
+    <None Include="24CLC03.csv" />
     <None Include="StudentListMain.csv" />
+    <None Include="StudentListMainDemo.csv" />
     <None Include="UserList.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

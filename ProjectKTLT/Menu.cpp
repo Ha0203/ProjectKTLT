@@ -105,7 +105,7 @@ void Menu(Account* userAcc)
 			goto again;
 		}
 	}
-	else if (userAcc->type == 2)
+	else if (userAcc->type == 0)
 	{
 		updatemyInfo(userAcc, firstYear);
 	next1:

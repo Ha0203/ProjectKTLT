@@ -70,10 +70,40 @@
     <None Include="StudentListMain.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="21CLC10.csv">
+    <None Include="21CLC02.csv">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="UserList.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="StudentListMainDemo.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="22CLC01.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="22CLC02.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="22CLC03.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="23CLC01.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="23CLC02.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="23CLC03.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="24CLC01.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="24CLC02.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="24CLC03.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
