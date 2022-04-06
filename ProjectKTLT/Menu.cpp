@@ -42,12 +42,10 @@ void Menu(Account* userAcc)
 			updateClass(firstYear);
 			break;
 		case 3:
-			system("cls");
-
+			createSemester(firstYear);
 			break;
 		case 4:
-			system("cls");
-
+			courseRegist(firstYear);
 			break;
 		case 5:
 			system("cls");

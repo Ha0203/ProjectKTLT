@@ -86,7 +86,7 @@ struct Year
 Course* findPos(Course* year, int choice);
 void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
-void createSemester(Semester*& firstSemester);
+void createSemester(Year*& firstYear);
 void addCourse(Course*& firstCourse);
 void courseRegist(Semester*& firstSemester);
 void viewCourses(Year* year);
@@ -101,5 +101,5 @@ void deleteAll(Year*& firstYear);
 void deleteAllAcc(Account*& pAcc);
 void createAccount(Account* pAcc);
 bool login(Account* pAcc, Account*& userAcc);
-void changePassword(Account* pAcc);
+void changePassword(Account*& userAcc);
 void updatemyInfo(Account* userAcc, Year* firstYear);
