@@ -42,6 +42,7 @@ void viewCourses(Year* year)
 		if (!cur)
 		{
 			cout << "\nInvalid semester! Please try again";
+			return;
 		}
 		system("cls");
 		cout << "\n\t\t\t\t------------------LIST OF COURSES------------------\n\n";
