@@ -24,7 +24,7 @@ void menu(Account* userAcc)
 		cout << "\n\t\t\t\t\t*\t   1. School Year\t    *";
 		cout << "\n\t\t\t\t\t*\t   2. Classes\t\t    *";
 		cout << "\n\t\t\t\t\t*\t   3. Courses\t\t    *";
-		cout << "\n\t\t\t\t\t*\t   4. Students\t\t    *";
+		cout << "\n\t\t\t\t\t*\t   4. Scoreboard\t    *";
 		cout << "\n\t\t\t\t\t*\t   5. Exit\t\t    *";
 		cout << "\n\t\t\t\t\t* * * * * * * * * * * * * * * * * * *";
 		SetConsoleTextAttribute(h, 12);
@@ -234,7 +234,7 @@ void menu(Account* userAcc)
 				goto back;
 			else
 			{
-				cout << "\n\t\t\t\tInvalid choice! Please try again.";
+				cout << "\n\t\t\t\t\tInvalid choice! Please try again.";
 				goto next;
 			}
 			break;
