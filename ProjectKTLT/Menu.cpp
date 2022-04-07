@@ -92,12 +92,12 @@ void menu(Account* userAcc)
 				break;
 			case 2:
 				system("cls");
-				//Waiting
+				viewClass(firstYear);
 				system("pause");
 				break;
 			case 3:
 				system("cls");
-				//Waiting
+				viewStuClass(firstYear);
 				system("pause");
 				break;
 			case 4:
@@ -140,7 +140,7 @@ void menu(Account* userAcc)
 				break;
 			case 3:
 				system("cls");
-				//Waiting
+				viewStuCourse(firstYear);
 				system("pause");
 				break;
 			case 4:
