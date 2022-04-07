@@ -23,7 +23,7 @@ int main()
 	{
 		changePassword(userAcc);
 	}
-	Menu(userAcc);
+	menu(userAcc);
 	writeUserList(pAcc);
 	return 0;
 }
