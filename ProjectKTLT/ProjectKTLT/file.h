@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <Windows.h>
 #include "file.h"
 using namespace std;
 
@@ -103,3 +104,4 @@ void createAccount(Account* pAcc);
 bool login(Account* pAcc, Account*& userAcc);
 void changePassword(Account*& userAcc);
 void updatemyInfo(Account* userAcc, Year* firstYear);
+void menu(Account* userAcc);
