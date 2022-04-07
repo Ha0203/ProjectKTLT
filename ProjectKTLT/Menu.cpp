@@ -5,7 +5,6 @@
 #include <Windows.h>
 using namespace std;
 #include"ProjectKTLT/file.h"
-using namespace std;
 
 void menu(Account* userAcc)
 {

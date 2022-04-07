@@ -89,7 +89,7 @@ void readStudentListMain(Year*& firstYear);
 void createSchoolYear(Year*& firstYear);
 void createSemester(Year*& firstYear);
 void addCourse(Course*& firstCourse);
-void courseRegist(Semester*& firstSemester);
+void courseRegist(Year*&firstYear);
 void viewCourses(Year* year);
 void update(Year* year);
 void deleteCourse(Year* year);

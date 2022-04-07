@@ -73,8 +73,32 @@ void addCourse(Course *& firstCourse)
 }
 
 
-void courseRegist(Semester*& firstSemester) 
+void courseRegist(Year*&firstYear) 
 {
+    cout << "\nChoose the year";
+    string temp;
+    cin >> temp;
+    Year* curYear = firstYear;
+    while (curYear != nullptr && curYear->nameYear != temp)
+    {
+        curYear = curYear->next;
+    }
+    if (curYear == nullptr)
+    {
+        cout << "\nThis year has not been created yet";
+        return;
+    }
+    cout << "\nChoose the semester";
+    Semester* curSe = curYear->firstSemester;
+    while (curSe != nullptr && curSe->nameSemester != temp)
+    {
+        curSe = curSe->next;
+    }
+    if (curSe == nullptr)
+    {
+        cout << "\nThis semester has not been created yet";
+        return;
+    }
     int choice;
     do 
     {
@@ -84,20 +108,20 @@ void courseRegist(Semester*& firstSemester)
         switch (choice) 
         {
         case 1:
-            if (firstSemester->registSession == true)
+            if (curSe->registSession == true)
                 cout << "\nCourse registration is already open!";
             else 
             {
-                firstSemester->registSession = true;
+                curSe->registSession = true;
                 cout << "\nCourse registration is now open!";
             }
             break;
         case 0:
-            if (firstSemester->registSession == false)
+            if (curSe->registSession == false)
                 cout << "\nCourse registration is already closed!";
             else 
             {
-                firstSemester->registSession = false;
+                curSe->registSession = false;
                 cout << "\nCourse registration is now closed!";
             }
             break;
