@@ -105,3 +105,6 @@ bool login(Account* pAcc, Account*& userAcc);
 void changePassword(Account*& userAcc);
 void updatemyInfo(Account* userAcc, Year* firstYear);
 void menu(Account* userAcc);
+void viewClass(Year* year);
+void viewStuClass(Year* year);
+void viewStuCourse(Year* year);
