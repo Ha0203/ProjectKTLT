@@ -15,7 +15,7 @@ void writeStudentListMain(Year*& firstYear)
 		Class* curClass = curYear->firstClass;
 		while (curClass != nullptr)
 		{
-			Student* curStudent = curYear->firstClass->firstStudent;
+			Student* curStudent = curClass->firstStudent;
 			while (curStudent != nullptr)
 			{
 				output << curYear->nameYear << "," << curClass->nameClass << "," << curStudent->Number << "," << curStudent->studentID << "," << curStudent->firstName << "," << curStudent->lastName << "," << curStudent->gender << "," << curStudent->dateOfBirth << "," << curStudent->socialID << "\n";

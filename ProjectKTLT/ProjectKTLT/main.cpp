@@ -25,5 +25,6 @@ int main()
 	}
 	menu(userAcc);
 	writeUserList(pAcc);
+	deleteAllAcc(pAcc);
 	return 0;
 }

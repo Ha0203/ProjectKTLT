@@ -130,7 +130,7 @@ void menu(Account* userAcc)
 			{
 			case 1:
 				system("cls");
-				/*courseRegist(firstYear);*/
+				courseRegist(firstYear);
 				system("pause");
 				break;
 			case 2:
