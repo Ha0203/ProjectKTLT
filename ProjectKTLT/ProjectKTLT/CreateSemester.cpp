@@ -75,7 +75,7 @@ void addCourse(Course *& firstCourse)
 
 void courseRegist(Year*&firstYear) 
 {
-    cout << "\nChoose the year";
+    cout << "\nChoose the school year: ";
     string temp;
     cin >> temp;
     Year* curYear = firstYear;
@@ -88,7 +88,8 @@ void courseRegist(Year*&firstYear)
         cout << "\nThis year has not been created yet";
         return;
     }
-    cout << "\nChoose the semester";
+    cout << "\nChoose the semester: ";
+    cin >> temp;
     Semester* curSe = curYear->firstSemester;
     while (curSe != nullptr && curSe->nameSemester != temp)
     {

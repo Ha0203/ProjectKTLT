@@ -82,7 +82,7 @@ struct Year
     Class *firstClass;
     string nameYear;
     Year *next;
-    Semester* firstSemester;
+    Semester* firstSemester = nullptr;
 };
 Course* findPos(Course* year, int choice);
 void readStudentListMain(Year*& firstYear);
