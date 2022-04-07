@@ -150,6 +150,7 @@
     <ClCompile Include="ReadStudentList.cpp" />
     <ClCompile Include="ReadUserList.cpp" />
     <ClCompile Include="updatemyInfo.cpp" />
+    <ClCompile Include="ViewClasses.cpp" />
     <ClCompile Include="ViewCourses.cpp" />
     <ClCompile Include="viewMyCourse.cpp" />
     <ClCompile Include="writeStudentListMain.cpp" />
