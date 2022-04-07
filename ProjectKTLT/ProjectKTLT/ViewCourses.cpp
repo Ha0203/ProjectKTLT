@@ -10,6 +10,11 @@ Course* findPos(Course* courses, int choice)
 
 void viewCourses(Year* year)
 {
+	if (!year)
+	{
+		cout << "\nNo information.";
+		return;
+	}
 	string yeartemp;
 	string semestertemp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
@@ -72,6 +77,11 @@ void viewCourses(Year* year)
 
 void update(Year* year)
 {
+	if (!year)
+	{
+		cout << "\nNo information.";
+		return;
+	}
 	int i = 1;
 	string yeartemp;
 	string semestertemp;
@@ -96,7 +106,6 @@ onemoretime:
 		return;
 	}
 	cout << "Please enter the semester you want to access: ";
-	cin.ignore();
 	getline(cin, semestertemp);
 	Semester* cur3 = cur1->firstSemester;
 	while (cur3 && cur3->nameSemester != semestertemp)
@@ -200,6 +209,11 @@ choose:
 
 void deleteCourse(Year* year)
 {
+	if (!year)
+	{
+		cout << "\nNo information.";
+		return;
+	}
 	int i = 1;
 	string yeartemp;
 	string semestertemp;
