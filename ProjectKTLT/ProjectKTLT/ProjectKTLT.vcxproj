@@ -147,12 +147,16 @@
     <ClCompile Include="enrollCourse.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ReadCourseList.cpp" />
+    <ClCompile Include="ReadSemesterList.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
     <ClCompile Include="ReadUserList.cpp" />
     <ClCompile Include="updatemyInfo.cpp" />
     <ClCompile Include="ViewClasses.cpp" />
     <ClCompile Include="ViewCourses.cpp" />
     <ClCompile Include="viewMyCourse.cpp" />
+    <ClCompile Include="WriteCourseList.cpp" />
+    <ClCompile Include="WriteSemesterList.cpp" />
     <ClCompile Include="writeStudentListMain.cpp" />
     <ClCompile Include="writeUserList.cpp" />
   </ItemGroup>
@@ -170,6 +174,11 @@
     <None Include="24CLC01.csv" />
     <None Include="24CLC02.csv" />
     <None Include="24CLC03.csv" />
+    <None Include="CourseList.csv" />
+    <None Include="CourseListDemo.csv" />
+    <None Include="CourseStudentList.csv" />
+    <None Include="SemesterList.csv" />
+    <None Include="SemesterListDemo.csv" />
     <None Include="StudentListMain.csv" />
     <None Include="StudentListMainDemo.csv" />
     <None Include="UserList.csv" />

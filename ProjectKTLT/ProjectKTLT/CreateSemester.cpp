@@ -103,20 +103,20 @@ void courseRegist(Year*&firstYear)
         switch (choice) 
         {
         case 1:
-            if (curSe->registSession == true)
+            if (curSe->registSession == 1)
                 cout << "\nCourse registration is already open!";
             else 
             {
-                curSe->registSession = true;
+                curSe->registSession = 1;
                 cout << "\nCourse registration is now open!";
             }
             break;
         case 0:
-            if (curSe->registSession == false)
+            if (curSe->registSession == 0)
                 cout << "\nCourse registration is already closed!";
             else 
             {
-                curSe->registSession = false;
+                curSe->registSession = 0;
                 cout << "\nCourse registration is now closed!";
             }
             break;

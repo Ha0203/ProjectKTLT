@@ -12,6 +12,9 @@ void menu(Account* userAcc)
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	int choice, choice1, choice2, choice3, choice4;
 	readStudentListMain(firstYear);
+	readSemesterList(firstYear);
+	readCourseList(firstYear);
+	readCourseStudentList(firstYear);
 	if (userAcc->type == 1)
 	{
 	back:
@@ -226,7 +229,10 @@ void menu(Account* userAcc)
 				SetConsoleTextAttribute(h, 12);
 				cout << "\n\t\t\t\t\t      - - - - THANK YOU - - - -\n";
 				SetConsoleTextAttribute(h, 7);
+				writeSemesterList(firstYear);
 				writeStudentListMain(firstYear);
+				writeCourseList(firstYear);
+				writeCourseStudentList(firstYear);
 				deleteAll(firstYear);
 			}
 			else if (dec == 'n')
@@ -250,7 +256,7 @@ back1:
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
 	cout << "\n\t\t\t\t*\t 1. Enroll In A Course        *";
 	cout << "\n\t\t\t\t*\t 2. Remove A Course\t      *";
-	cout << "\n\t\t\t\t*\t 3. Enrolled Courses\t      *";
+	cout << "\n\t\t\t\t*\t 3. View enrolled Courses\t      *";
 	cout << "\n\t\t\t\t*\t 4. View Scoreboard\t      *";
 	cout << "\n\t\t\t\t*\t 5. Exit\t              *";
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
@@ -296,7 +302,10 @@ again5:
 			SetConsoleTextAttribute(h, 12);
 			cout << "\n\t\t\t\t      - - - - THANK YOU - - - -\n";
 			SetConsoleTextAttribute(h, 7);
+			writeSemesterList(firstYear);
 			writeStudentListMain(firstYear);
+			writeCourseList(firstYear);
+			writeCourseStudentList(firstYear);
 			deleteAll(firstYear);
 		}
 		else if (dec == 'n')
@@ -400,6 +409,7 @@ void Menu(Account* userAcc)
 		else if (dec == 'N')
 		{
 			writeStudentListMain(firstYear);
+			writeSemesterList(firstYear);
 			deleteAll(firstYear);
 			cout << "\nThank you for using the program.";
 		}

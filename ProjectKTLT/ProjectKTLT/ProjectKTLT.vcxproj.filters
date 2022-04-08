@@ -63,6 +63,18 @@
     <ClCompile Include="ViewClasses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ReadCourseList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadSemesterList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteSemesterList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteCourseList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h">
@@ -110,6 +122,21 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="UserListDemo.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CourseList.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SemesterList.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SemesterListDemo.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CourseListDemo.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CourseStudentList.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

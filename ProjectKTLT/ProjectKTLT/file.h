@@ -17,7 +17,7 @@ struct copyCourse
     int numberOfStudents;
     string session1;
     string session2;
-    copyCourse* next;
+    copyCourse* next = nullptr;
 };
 struct Student
 {
@@ -29,59 +29,59 @@ struct Student
     string dateOfBirth;
     string socialID;
     copyCourse* firstCourse = nullptr;
-    Student* next;
+    Student* next = nullptr;
 };
 struct Account
 {
     string username;
     string password;
     int type;
-    Student* myInfo;
-    Account* next;
+    Student* myInfo = nullptr;
+    Account* next = nullptr;
 };
 struct Class
 {
-    Student *firstStudent;
+    Student* firstStudent = nullptr;
     string nameClass;
-    Class* next;
+    Class* next = nullptr;
 };
 struct courseStudent
 {
-    string Number;
+    int Number;
     string studentID;
     string firstName;
     string lastName;
     string gender;
     string dateOfBirth;
     string socialID;
-    courseStudent* next;
+    courseStudent* next = nullptr;
 };
 struct Course
 {
     string courseID;
     string courseName;
     string teacherName;
-    int numberOfCredit;
+    string numberOfCredit;
     int numberOfStudents;
     string session1;
     string session2;
-    courseStudent* firstcourseStudent;
-    Course* next;
+    courseStudent* firstcourseStudent = nullptr;
+    Course* next = nullptr;
 };
 struct Semester
 {
     string nameSemester;
     string startdate;
     string enddate;
-    bool registSession = false;
-    Course* firstCourse;
-    Semester* next;
+    int registSession = 0;
+    Course* firstCourse = nullptr;
+    Semester* next = nullptr;
 };
 struct Year
 {
-    Class *firstClass;
+    Class* firstClass = nullptr;
     string nameYear;
-    Year *next;
+    Year* next = nullptr;
     Semester* firstSemester = nullptr;
 };
 Course* findPos(Course* year, int choice);
@@ -108,3 +108,9 @@ void menu(Account* userAcc);
 void viewClass(Year* year);
 void viewStuClass(Year* year);
 void viewStuCourse(Year* year);
+void readSemesterList(Year*& firstYear);
+void writeSemesterList(Year*& firstYear);
+void readCourseList(Year*& firstYear);
+void writeCourseList(Year*& firstYear);
+void readCourseStudentList(Year*& firstYear);
+void writeCourseStudentList(Year*& firstYear);
