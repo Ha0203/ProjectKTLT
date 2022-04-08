@@ -18,14 +18,11 @@ void createSemester(Year*& firstYear)
     Semester *newSemester = new Semester;
     int choice;
     cout << "\nInput semester name: ";
-    cin.ignore();
-    getline(cin, newSemester->nameSemester);
+    cin >> newSemester->nameSemester;
     cout << "\nInput start date: ";
-    cin.ignore();
-    getline(cin, newSemester->startdate);
+    cin >> newSemester->startdate;
     cout << "\nInput end date: ";
-    cin.ignore();
-    getline(cin, newSemester->enddate);
+    cin >> newSemester->enddate;
     newSemester->firstCourse = nullptr;
     do {
         addCourse(newSemester->firstCourse);
@@ -50,23 +47,20 @@ void addCourse(Course *& firstCourse)
 {
     Course *newCourse = new Course;
     cout << "\nInput course ID: ";
-    cin.ignore();
-    getline(cin, newCourse->courseID);
+    cin >> newCourse->courseID;
     cout << "\nInput course name: ";
     cin.ignore();
     getline(cin, newCourse->courseName);
     cout << "\nInput teacher name: ";
-    cin.ignore();
     getline(cin, newCourse->teacherName);
     cout << "\nInput number of credits: ";
     cin >> newCourse->numberOfCredit;
     cout << "\nInput the maximum number of students in the course: ";
     cin >> newCourse->numberOfStudents;
     cout << "\nInput session 1 of this course: ";
-    cin.ignore();
-    getline(cin, newCourse->session1);
+    cin >> newCourse->session1;
     cout << "\nInput session 2 of this course: ";
-    cin.ignore();
+    cin >> newCourse->session2;
     getline(cin, newCourse->session2);
     newCourse->next = firstCourse;
     firstCourse = newCourse;

@@ -18,7 +18,6 @@ int main()
 	cout << "Otherwise, press any key\n";
 	cout << "Your choice: ";
 	cin >> choice;
-	cin.ignore();
 	if (choice == '1')
 	{
 		changePassword(userAcc);

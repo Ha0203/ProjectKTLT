@@ -18,8 +18,7 @@ void viewCourses(Year* year)
 	string yeartemp;
 	string semestertemp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
-	cin.ignore();
-	getline(cin, yeartemp);
+	cin >> yeartemp;
 	Year* cur1 = year;
 	bool exist = false;
 	while (cur1)
@@ -39,8 +38,7 @@ void viewCourses(Year* year)
 	else
 	{
 		cout << "Please enter the semester you want to access: ";
-		cin.ignore();
-		getline(cin, semestertemp);
+		cin >> semestertemp;
 		Semester* cur = cur1->firstSemester;
 		while (cur && cur->nameSemester != semestertemp)
 			cur = cur->next;
