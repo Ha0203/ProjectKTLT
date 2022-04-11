@@ -10,22 +10,23 @@ void viewClass(Year* year)
 	string yeartemp;
 	string semestertemp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
-	cin.ignore();
-	getline(cin, yeartemp);
+	cin >> yeartemp;
 	Year* cur1 = year;
 	while (cur1 && cur1->nameYear != yeartemp)
 		cur1 = cur1->next;
 	if (!cur1)
 	{
-		cout << "\nInvalid year! Please try again.";
+		cout << "\nThis year has not been created yet";
 		return;
 	}
 	cout << "\nClasses in " << cur1->nameYear << ": ";
-	while (cur1)
+	Class* curClass = cur1->firstClass;
+	while (curClass)
 	{
-		cout << "\n" << cur1->firstClass;
-		cur1 = cur1->next;
+		cout << "\n" << curClass->nameClass;
+		curClass = curClass->next;
 	}
+	cout << endl;
 }
 
 void viewStuClass(Year* year)
@@ -37,24 +38,23 @@ void viewStuClass(Year* year)
 	}
 	string temp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
-	cin.ignore();
-	getline(cin, temp);
+	cin >> temp;
 	Year* cur1 = year;
 	while (cur1 && cur1->nameYear != temp)
 		cur1 = cur1->next;
 	if (!cur1)
 	{
-		cout << "\nInvalid year! Please try again.";
+		cout << "\nThis year has not been created yet";
 		return;
 	}
 	cout << "Which class you want to view the list of students: ";
-	getline(cin, temp);
-	Class* cur = year->firstClass;
+	cin >> temp;
+	Class* cur = cur1->firstClass;
 	while (cur && cur->nameClass != temp)
 		cur = cur->next;
 	if (!cur)
 	{
-		cout << "\nInvalid class! Please try again.";
+		cout << "\nThis class has not been created yet";
 		return;
 	}
 	cout << setw(5) << left << "No.";
@@ -79,6 +79,7 @@ void viewStuClass(Year* year)
 		cout << setw(15) << left << cur2->socialID;
 		cur2 = cur2->next;
 	}
+	cout << endl;
 }
 
 void viewStuCourse(Year* year)

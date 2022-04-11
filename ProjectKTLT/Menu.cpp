@@ -247,6 +247,7 @@ void menu(Account* userAcc)
 	}
 	else if (userAcc->type == 0)
 	{
+	updatemyInfo(userAcc, firstYear);
 	int choice5;
 back1:
 	system("cls");
@@ -254,11 +255,9 @@ back1:
 	cout << "\n\t\t\t\t\t- - - - STUDENT - - - -";
 	SetConsoleTextAttribute(h, 7);
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
-	cout << "\n\t\t\t\t*\t 1. Enroll In A Course        *";
-	cout << "\n\t\t\t\t*\t 2. Remove A Course\t      *";
-	cout << "\n\t\t\t\t*\t 3. View enrolled Courses\t      *";
-	cout << "\n\t\t\t\t*\t 4. View Scoreboard\t      *";
-	cout << "\n\t\t\t\t*\t 5. Exit\t              *";
+	cout << "\n\t\t\t\t*\t 1. EnrollMent\t         *";
+	cout << "\n\t\t\t\t*\t 2. View Scoreboard\t      *";
+	cout << "\n\t\t\t\t*\t 3. Exit\t              *";
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
 	SetConsoleTextAttribute(h, 12);
 	cout << "\n\t\t\t\t[ Your choice ]: ";
@@ -269,7 +268,7 @@ again5:
 	{
 	case 1:
 		system("cls");
-
+		enrollCourse(firstYear, userAcc);
 		system("pause");
 		goto back1;
 	case 2:
@@ -278,16 +277,6 @@ again5:
 		system("pause");
 		goto back1;
 	case 3:
-		system("cls");
-
-		system("pause");
-		goto back1;
-	case 4:
-		system("cls");
-
-		system("pause");
-		goto back1;
-	case 5:
 		system("cls");
 		char dec;
 		cout << "\n\t\t\t\tAre you sure to exit the program? (y/n)";

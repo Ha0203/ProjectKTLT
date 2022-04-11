@@ -148,6 +148,7 @@
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadCourseList.cpp" />
+    <ClCompile Include="ReadCourseStudentList.cpp" />
     <ClCompile Include="ReadSemesterList.cpp" />
     <ClCompile Include="ReadStudentList.cpp" />
     <ClCompile Include="ReadUserList.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="ViewCourses.cpp" />
     <ClCompile Include="viewMyCourse.cpp" />
     <ClCompile Include="WriteCourseList.cpp" />
+    <ClCompile Include="WriteCourseStudentList.cpp" />
     <ClCompile Include="WriteSemesterList.cpp" />
     <ClCompile Include="writeStudentListMain.cpp" />
     <ClCompile Include="writeUserList.cpp" />
