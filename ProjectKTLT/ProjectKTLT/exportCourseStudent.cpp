@@ -18,11 +18,11 @@ void exportCourseStudent(Year*& firstYear)
 			while (curCo != nullptr)
 			{
 				courseStudent* curStu = curCo->firstcourseStudent;
-				string filename = curCo->courseID;
+				string filename = curYear->nameYear+curSe->nameSemester+curCo->courseID;
 				output.open(filename.c_str(), ios::out);
 				while (curStu != nullptr)
 				{
-					output << curStu->Number << "," << curStu->studentID << "," << curStu->lastName + curStu->firstName << "," << -1 << "," << -1 << "," << -1 << "\n";
+					output << curStu->Number << "," << curStu->studentID << "," << curStu->lastName + curStu->firstName << "," << curStu->mark.total << "," << curStu->mark.final << "," << curStu->mark.mid << "\n";
 					curStu = curStu->next;
 				}
 				output.close();

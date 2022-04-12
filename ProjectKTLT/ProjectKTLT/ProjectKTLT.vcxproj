@@ -146,6 +146,7 @@
     <ClCompile Include="deleteAllAcc.cpp" />
     <ClCompile Include="enrollCourse.cpp" />
     <ClCompile Include="exportCourseStudent.cpp" />
+    <ClCompile Include="importScoreBoard.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadCourseList.cpp" />

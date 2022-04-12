@@ -8,6 +8,12 @@
 #include "file.h"
 using namespace std;
 
+struct Mark
+{
+    int total = -1;
+    int final = -1;
+    int mid = -1;
+};
 struct copyCourse
 {
     string courseID;
@@ -17,6 +23,7 @@ struct copyCourse
     int numberOfStudents;
     string session1;
     string session2;
+    Mark mark;
     copyCourse* next = nullptr;
 };
 struct Student
@@ -54,6 +61,7 @@ struct courseStudent
     string gender;
     string dateOfBirth;
     string socialID;
+    Mark mark;
     courseStudent* next = nullptr;
 };
 struct Course
@@ -122,3 +130,4 @@ bool checkNumCourse(Account* userAcc);
 bool checkCourse(Course* cur, Account* userAcc);
 void enrollCourse(Year*& firstYear, Account*& userAcc);
 void exportCourseStudent(Year*& firstYear);
+void importScoreBoard(Year*& firstYear);

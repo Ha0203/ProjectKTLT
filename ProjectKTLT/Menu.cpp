@@ -15,6 +15,7 @@ void menu(Account* userAcc)
 	readSemesterList(firstYear);
 	readCourseList(firstYear);
 	readCourseStudentList(firstYear);
+	importScoreBoard(firstYear);
 	if (userAcc->type == 1)
 	{
 	back:
