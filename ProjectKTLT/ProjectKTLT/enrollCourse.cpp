@@ -8,7 +8,7 @@ using namespace std;
 void enrollCourse(Year*&firstYear, Account*&userAcc)
 {
 	string temp;
-	cout << "\nInput the school year of yours";
+	cout << "\nInput the school year of yours (Ex: 2021-2022): ";
 	cin >> temp;
 	Year* curYear = firstYear;
 	while (curYear != nullptr && curYear->nameYear != temp)
@@ -17,10 +17,10 @@ void enrollCourse(Year*&firstYear, Account*&userAcc)
 	}
 	if(curYear == nullptr)
 	{
-		cout << "\nThis year has not been created yet";
+		cout << "\nThis year has not been created yet.";
 		return;
 	}
-	cout << "\nInput the name of semester";
+	cout << "\nInput the name of semester (Ex: Fall): ";
 	cin >> temp;
 	Semester* curSemester = curYear->firstSemester;
 	while (curSemester != nullptr && curSemester->nameSemester != temp)
@@ -29,29 +29,45 @@ void enrollCourse(Year*&firstYear, Account*&userAcc)
 	}
 	if (curSemester == nullptr)
 	{
-		cout << "\nThis semester has not been created yet";
+		cout << "\nThis semester has not been created yet.";
 		return;
 	}
 	if (curSemester->registSession == 0)
 	{
-		cout << "\nNot in the course registration session";
+		cout << "\nNot in the course registration session.";
 		return;
 	}
 	//Phi
-	cout << "\nHere is  the list of courses in this semester";
+start:
 	Course* curCourse = curSemester->firstCourse;
-	cout << "\nCourse ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t" << "Session1\t" << "Session2\n";
+	system("cls");
+	cout << "\n\t\t\t\t------------------COURSES IN THIS SEMESTER------------------\n\n";
+	cout << '\t'<<setw(14) << left << "Course ID";
+	cout << setw(26) << left << "Course Name";
+	cout << setw(11) << left << "Credit";
+	cout << setw(13) << left << "Students";
+	cout << setw(15) << left << "Session 1";
+	cout << setw(15) << left << "Session 2";
+	cout << "Teacher";
 	while (curCourse != nullptr)
 	{
-		cout << curCourse->courseID << "\t" << curCourse->courseName << "\t" << curCourse->teacherName << "\t" << curCourse->numberOfCredit << "\t" << curCourse->numberOfStudents << "\t" << curCourse->session1 << "\t" << curCourse->session2 << "\n";
+		cout << endl;
+		cout <<'\t'<< setw(14) << left << curCourse->courseID;
+		cout << setw(26) << left << curCourse->courseName;
+		cout << setw(11) << left << curCourse->numberOfCredit;
+		cout << setw(13) << left << curCourse->numberOfStudents;
+		cout << setw(15) << left << curCourse->session1;
+		cout << setw(15) << left << curCourse->session2;
+		cout << curCourse->teacherName;
 		curCourse = curCourse->next;
 	}
 next:
-	cout << endl;
-	cout << "Press 1 to \tENROLL A NEW COURSE\n";
-	cout << "Press 2 to \tVIEW A LIST OF ENROLLED COURSES\n";
-	cout << "Press 3 to \tDELETE AN ENROLLED COURSE\n";
-	cout << "Your choice: ";
+	cout << endl << endl << endl << endl;
+	cout << "\tPress 1 to \tENROLL A NEW COURSE\n";
+	cout << "\tPress 2 to \tVIEW A LIST OF ENROLLED COURSES\n";
+	cout << "\tPress 3 to \tDELETE AN ENROLLED COURSE\n";
+	cout << "\tPress 4 to \tGO BACK\n";
+	cout << "\t[ Your choice ]:";
 	int choice;
 choose:
 	cin >> choice;
@@ -59,7 +75,29 @@ choose:
 	{
 	case 1:
 	{
-		cout << "\nInput the course'ID you want to enroll";
+		curCourse = curSemester->firstCourse;
+		system("cls");
+		cout << "\n\t\t\t\t------------------COURSES IN THIS SEMESTER------------------\n\n";
+		cout << '\t' << setw(14) << left << "Course ID";
+		cout << setw(26) << left << "Course Name";
+		cout << setw(11) << left << "Credit";
+		cout << setw(13) << left << "Students";
+		cout << setw(15) << left << "Session 1";
+		cout << setw(15) << left << "Session 2";
+		cout << "Teacher";
+		while (curCourse != nullptr)
+		{
+			cout << endl;
+			cout << '\t' << setw(14) << left << curCourse->courseID;
+			cout << setw(26) << left << curCourse->courseName;
+			cout << setw(11) << left << curCourse->numberOfCredit;
+			cout << setw(13) << left << curCourse->numberOfStudents;
+			cout << setw(15) << left << curCourse->session1;
+			cout << setw(15) << left << curCourse->session2;
+			cout << curCourse->teacherName;
+			curCourse = curCourse->next;
+		}
+		cout << "\n\n\n\tInput the course ID you want to enroll: ";
 		string temp;
 		cin >> temp;
 		Course* curCourse = curSemester->firstCourse;
@@ -69,51 +107,103 @@ choose:
 		}
 		if (curCourse == nullptr)
 		{
-			cout << "\nThis course has not been created yet";
+			cout << "\n\tThis course has not been created yet.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		//Xem course co thoa man hay k
 		if (checkexistCourse(curCourse,userAcc) == true)
 		{
-			cout << "\nYou have already enrolled this course";
+			cout << "\n\tYou have already enrolled this course.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		if (checkCourse(curCourse,userAcc) == false)
 		{
-			cout << "\nThis course is conflicted";
+			cout << "\n\tThis course is conflicted.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		if (checkNumCourse(userAcc) == false)
 		{
-			cout << "\nYou can only enroll at most 5 courses";
+			cout << "\n\tYou can only enroll at most 5 courses.\n\t";
+			system("pause");
 			break;
 		}
 		if (checkNumStu(curCourse) == false)
 		{
-			cout << "\nThis course has full slots";
+			cout << "\n\tThis course has full slots.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		//Cap nhat course vao du lieu cua sinh vien
 		updateMyC(curCourse, userAcc);
 		putStuInCourse(curCourse, userAcc);
-		break;
 	}
 	case 2:
 	{
-		//Phi
-		cout << "\nThe list of enrolled courses is" << endl;
 		copyCourse* cur = userAcc->myInfo->firstCourse;
-		cout << "\nCourse ID\t" << "Course Name\t\t" << "Teacher Name\t" << "Number of Credits\t" << "The Number Of Student\t" << "Session1\t" << "Session2\n";
+		if (cur == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
+		system("cls");
+		cout << "\n\t\t\t\t------------------YOUR ENROLLED COURSES------------------\n\n";
+		cout << '\t'<<setw(14) << left << "Course ID";
+		cout << setw(26) << left << "Course Name";
+		cout << setw(11) << left << "Credit";
+		cout << setw(13) << left << "Students";
+		cout << setw(15) << left << "Session 1";
+		cout << setw(15) << left << "Session 2";
+		cout << "Teacher";
 		while (cur != nullptr)
 		{
-			cout << cur->courseID << "\t" << cur->courseName << "\t" << cur->teacherName << "\t" << cur->numberOfCredit << "\t" << cur->numberOfStudents << "\t" << cur->session1 << "\t" << cur->session2 << "\n";
+			cout << endl;
+			cout << '\t'<<setw(14) << left << cur->courseID;
+			cout << setw(26) << left << cur->courseName;
+			cout << setw(11) << left << cur->numberOfCredit;
+			cout << setw(13) << left << cur->numberOfStudents;
+			cout << setw(15) << left << cur->session1;
+			cout << setw(15) << left << cur->session2;
+			cout << cur->teacherName;
 			cur = cur->next;
 		}
-		break;
+		cout << endl<<'\t';
+		system("pause");
+		goto start;
 	}
 	case 3:
 	{
-		cout << "\nInput the course'ID you want to remove";
+		copyCourse* cur = userAcc->myInfo->firstCourse;
+		system("cls");
+		cout << "\n\t\t\t\t------------------YOUR ENROLLED COURSES------------------\n\n";
+		cout << '\t'<<setw(14) << left << "Course ID";
+		cout << setw(26) << left << "Course Name";
+		cout << setw(11) << left << "Credit";
+		cout << setw(13) << left << "Students";
+		cout << setw(15) << left << "Session 1";
+		cout << setw(15) << left << "Session 2";
+		cout << "Teacher";
+		while (cur != nullptr)
+		{
+			cout << endl;
+			cout << '\t'<<setw(14) << left << cur->courseID;
+			cout << setw(26) << left << cur->courseName;
+			cout << setw(11) << left << cur->numberOfCredit;
+			cout << setw(13) << left << cur->numberOfStudents;
+			cout << setw(15) << left << cur->session1;
+			cout << setw(15) << left << cur->session2;
+			cout << cur->teacherName;
+			cur = cur->next;
+		}
+		cout << endl;
+		cout << "\n\n\tInput the course ID you want to remove: ";
 		string temp;
 		cin >> temp;
 		Course* curCourse = curSemester->firstCourse;
@@ -123,12 +213,16 @@ choose:
 		}
 		if (curCourse == nullptr)
 		{
-			cout << "\nThis course has not been created yet";
+			cout << "\n\tThis course has not been created yet.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		if (checkexistCourse == 0)
 		{
-			cout << "\nDon't have this course in your enrolled list to remove";
+			cout << "\n\tDon't have this course in your enrolled list to remove.\n\t";
+			system("pause");
+			goto start;
 			break;
 		}
 		copyCourse* myC = userAcc->myInfo->firstCourse;
@@ -163,28 +257,15 @@ choose:
 			curStu->next = curStu->next->next;
 			delete temp;
 		}
-		break;
+		goto start;
 	}
+	case 4:
+		break;
 	default:
 	{
-		cout << "Invalid choice! Please enter your choice again: ";
+		cout << "\tInvalid choice! Please enter your choice again: ";
 		goto choose;
 	}
-	}
-again:
-	cout << "\nDo you want to continue the function (Y/N)?";
-	char dec;
-	cin >> dec;
-	if (dec == 'Y')
-		goto next;
-	else if (dec == 'N')
-	{
-		return;
-	}
-	else
-	{
-		cout << "\nInvalid choice! Please enter your choice again: ";
-		goto again;
 	}
 }
 bool checkCourse(Course* cur, Account* userAcc)
