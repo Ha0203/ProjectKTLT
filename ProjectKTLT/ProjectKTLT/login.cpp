@@ -36,7 +36,7 @@ bool login(Account*pAcc, Account*&userAcc)
     Account* tmpAcc = pAcc;
     cout << "\nType in your username: ";
     cin >> userAcc->username;
-    cout << "\nType in your password:";
+    cout << "\nType in your password: ";
     cin >> userAcc->password;
     for (tmpAcc = pAcc; tmpAcc != nullptr; tmpAcc = tmpAcc->next)
     {
