@@ -30,6 +30,7 @@ void menu(Account* userAcc)
 		cout << "\n\t\t\t\t\t*\t   4. Scoreboard\t    *";
 		cout << "\n\t\t\t\t\t*\t   5. Exit\t\t    *";
 		cout << "\n\t\t\t\t\t* * * * * * * * * * * * * * * * * * *";
+	again7:
 		SetConsoleTextAttribute(h, 12);
 		cout << "\n\t\t\t\t\t[ Your choice ]: ";
 		SetConsoleTextAttribute(h, 7);
@@ -56,11 +57,13 @@ void menu(Account* userAcc)
 			case 1:
 				system("cls");
 				createSchoolYear(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 2:
 				system("cls");
 				createSemester(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 3:
@@ -92,16 +95,19 @@ void menu(Account* userAcc)
 			case 1:
 				system("cls");
 				updateClass(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 2:
 				system("cls");
 				viewClass(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 3:
 				system("cls");
 				viewStuClass(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 4:
@@ -135,31 +141,37 @@ void menu(Account* userAcc)
 			case 1:
 				system("cls");
 				courseRegist(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 2:
 				system("cls");
 				viewCourses(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 3:
 				system("cls");
 				viewStuCourse(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 4:
 				system("cls");
 				update(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 5:
 				system("cls");
 				deleteCourse(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 6:
 				system("cls");
 				exportCourseStudent(firstYear);
+				cout << endl;
 				system("pause");
 				break;
 			case 7:
@@ -191,21 +203,25 @@ void menu(Account* userAcc)
 			case 1:
 				system("cls");
 
+				cout << endl;
 				system("pause");
 				break;
 			case 2:
 				system("cls");
 
+				cout << endl;
 				system("pause");
 				break;
 			case 3:
 				system("cls");
 
+				cout << endl;
 				system("pause");
 				break;
 			case 4:
 				system("cls");
 
+				cout << endl;
 				system("pause");
 				break;
 			case 5:
@@ -244,6 +260,9 @@ void menu(Account* userAcc)
 				goto next;
 			}
 			break;
+		default:
+			cout << "\n\t\t\t\t\tInvalid choice! Please try again.";
+			goto again7;
 		}
 	}
 	else if (userAcc->type == 0)
@@ -256,10 +275,11 @@ back1:
 	cout << "\n\t\t\t\t\t- - - - STUDENT - - - -";
 	SetConsoleTextAttribute(h, 7);
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
-	cout << "\n\t\t\t\t*\t 1. EnrollMent\t         *";
-	cout << "\n\t\t\t\t*\t 2. View Scoreboard\t      *";
-	cout << "\n\t\t\t\t*\t 3. Exit\t              *";
+	cout << "\n\t\t\t\t*\t   1. Enrollment\t      *";
+	cout << "\n\t\t\t\t*\t   2. View Scoreboard\t      *";
+	cout << "\n\t\t\t\t*\t   3. Exit\t              *";
 	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * *";
+again6:
 	SetConsoleTextAttribute(h, 12);
 	cout << "\n\t\t\t\t[ Your choice ]: ";
 again5:
@@ -270,11 +290,13 @@ again5:
 	case 1:
 		system("cls");
 		enrollCourse(firstYear, userAcc);
+		cout << endl;
 		system("pause");
 		goto back1;
 	case 2:
 		system("cls");
 
+		cout << endl;
 		system("pause");
 		goto back1;
 	case 3:
@@ -306,10 +328,13 @@ again5:
 			goto next1;
 		}
 		break;
+	default:
+		cout << "\n\t\t\t\tInvalid choice! Please try again.";
+		goto again6;
 	}
  }
 }
-
+/*
 void Menu(Account* userAcc)
 {
 	Year* firstYear = nullptr;
@@ -350,7 +375,7 @@ void Menu(Account* userAcc)
 			createSemester(firstYear);
 			break;
 		case 4:
-			/*courseRegist(firstYear);*/
+			/*courseRegist(firstYear);
 			break;
 		case 5:
 			system("cls");
@@ -472,4 +497,4 @@ void Menu(Account* userAcc)
 		}
 	}
 }
-
+*/
