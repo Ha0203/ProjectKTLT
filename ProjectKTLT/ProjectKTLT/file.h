@@ -121,3 +121,4 @@ bool checkNumStu(Course* cur);
 bool checkNumCourse(Account* userAcc);
 bool checkCourse(Course* cur, Account* userAcc);
 void enrollCourse(Year*& firstYear, Account*& userAcc);
+void exportCourseStudent(Year*& firstYear);

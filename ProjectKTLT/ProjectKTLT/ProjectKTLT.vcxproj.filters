@@ -81,6 +81,9 @@
     <ClCompile Include="WriteCourseStudentList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exportCourseStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="file.h">
@@ -143,6 +146,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="CourseStudentList.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CourseStudentListDemo.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

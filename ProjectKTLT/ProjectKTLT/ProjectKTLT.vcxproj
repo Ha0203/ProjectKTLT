@@ -145,6 +145,7 @@
     <ClCompile Include="delete.cpp" />
     <ClCompile Include="deleteAllAcc.cpp" />
     <ClCompile Include="enrollCourse.cpp" />
+    <ClCompile Include="exportCourseStudent.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadCourseList.cpp" />
@@ -179,6 +180,7 @@
     <None Include="CourseList.csv" />
     <None Include="CourseListDemo.csv" />
     <None Include="CourseStudentList.csv" />
+    <None Include="CourseStudentListDemo.csv" />
     <None Include="SemesterList.csv" />
     <None Include="SemesterListDemo.csv" />
     <None Include="StudentListMain.csv" />

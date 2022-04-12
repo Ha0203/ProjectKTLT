@@ -158,7 +158,7 @@ void menu(Account* userAcc)
 				break;
 			case 6:
 				system("cls");
-				//Waiting
+				exportCourseStudent(firstYear);
 				system("pause");
 				break;
 			case 7:
