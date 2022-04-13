@@ -19,7 +19,7 @@ void importScoreBoard(Year*& firstYear)
 			while (curCo != nullptr)
 			{
 				courseStudent* curStu = curCo->firstcourseStudent;
-				string filename = curYear->nameYear + curSe->nameSemester + curCo->courseID;
+				string filename = curYear->nameYear + curSe->nameSemester + curCo->courseID+".csv";
 				input.open(filename.c_str(), ios::out);
 				if (input.fail())
 				{

@@ -18,7 +18,7 @@ void exportCourseStudent(Year*& firstYear)
 			while (curCo != nullptr)
 			{
 				courseStudent* curStu = curCo->firstcourseStudent;
-				string filename = curYear->nameYear+curSe->nameSemester+curCo->courseID;
+				string filename = curYear->nameYear+curSe->nameSemester+curCo->courseID+".csv";
 				output.open(filename.c_str(), ios::out);
 				while (curStu != nullptr)
 				{

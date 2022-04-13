@@ -187,11 +187,10 @@ void menu(Account* userAcc)
 			cout << "\n\t\t\t\t\t        - - - - SCOREBOARD - - - -";
 			SetConsoleTextAttribute(h, 7);
 			cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
-			cout << "\n\t\t\t\t*  \t   1. Import The Scoreboard Of Students\t        *";
-			cout << "\n\t\t\t\t*  \t   2. View The Scoreboard Of A Course\t        *";
-			cout << "\n\t\t\t\t*  \t   3. View The Scoreboard Of A Class \t        *";
-			cout << "\n\t\t\t\t*  \t   4. Update A Student's Result\t\t        *";
-			cout << "\n\t\t\t\t*  \t   5. Back\t\t\t\t\t*";
+			cout << "\n\t\t\t\t*  \t   1. View The Scoreboard Of A Course\t        *";
+			cout << "\n\t\t\t\t*  \t   2. View The Scoreboard Of A Class \t        *";
+			cout << "\n\t\t\t\t*  \t   3. Update A Student's Result\t\t        *";
+			cout << "\n\t\t\t\t*  \t   4. Back\t\t\t\t\t*";
 			cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
 		again4:
 			SetConsoleTextAttribute(h, 12);
@@ -219,12 +218,6 @@ void menu(Account* userAcc)
 				system("pause");
 				break;
 			case 4:
-				system("cls");
-
-				cout << endl;
-				system("pause");
-				break;
-			case 5:
 				goto back;
 			default:
 				cout << "\n\t\t\t\tInvalid choice! Please try again.";
