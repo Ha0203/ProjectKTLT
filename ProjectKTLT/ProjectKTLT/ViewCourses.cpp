@@ -3,7 +3,7 @@
 Course* findPos(Course* courses, int choice)
 {
 	Course* cur = courses;
-	for (int i = 0; i < choice;i++)
+	for (int i = 0; i < choice-1;i++)
 		cur = cur->next;
 	return cur;
 }
@@ -128,10 +128,10 @@ onemoretime:
 		cin >> choice;
 	}
 	Course* cur = findPos(cur3->firstCourse, choice);
-	
+update:
 	system("cls");
 	cout << "\n\t\t\t\t------------------COURSES INFORMATION------------------\n\n";
-	cout << setw(14) << left << "Course ID";
+	cout <<'\t'<< setw(14) << left << "Course ID";
 	cout << setw(26) << left << "Course Name";
 	cout << setw(11) << left << "Credit";
 	cout << setw(13) << left << "Students";
@@ -139,7 +139,7 @@ onemoretime:
 	cout << setw(15) << left << "Session 2";
 	cout << "Teacher";
 	cout << endl;
-	cout << setw(14) << left << cur->courseID;
+	cout <<'\t'<< setw(14) << left << cur->courseID;
 	cout << setw(26) << left << cur->courseName;
 	cout << setw(11) << left << cur->numberOfCredit;
 	cout << setw(13) << left << cur->numberOfStudents;
@@ -147,14 +147,14 @@ onemoretime:
 	cout << setw(15) << left << cur->session2;
 	cout << cur->teacherName;
 	cout << endl;
-
-	cout << "Which information you want to change?";
-	cout << "Press 1 to change course ID.\n";
-	cout << "Press 2 to change course name.\n";
-	cout << "Press 3 to change teacher name.\n";
-	cout << "Press 4 to change number of credits.\n";
-	cout << "Press 5 to change the maximum number of students.\n";
-	cout << "Press 6 to change session.\n";
+	cout << "\n\nWhich information you want to update?\n";
+	cout << "Press 1 to \tUPDATE COURSE ID\n";
+	cout << "Press 2 to \tUPDATE COURSE NAME\n";
+	cout << "Press 3 to \tUPDATE TEACHER NAME\n";
+	cout << "Press 4 to \tUPDATE NUMBER OF CREDITS \n";
+	cout << "Press 5 to \tUPDATE THE MAXIMUM NUMBER OF STUDENTS\n";
+	cout << "Press 6 to \tUPDATE SESSION\n";
+	cout << "Press 7 to \tGO BACK\n";
 	cout << "Your choice: ";
 choose:
 	cin >> choice;
@@ -163,34 +163,50 @@ choose:
 	switch (choice)
 	{
 	case 1:
+		system("cls");
 		cout << "Please enter the content you want to replace: ";
 		cin.ignore();
 		getline(cin,temp);
 		cur->courseID = temp;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
 	case 2:
+		system("cls");
 		cout << "Please enter the content you want to replace: ";
 		cin.ignore();
 		getline(cin, temp);
 		cur->courseName = temp;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
 	case 3:
+		system("cls");
 		cout << "Please enter the content you want to replace: ";
 		cin.ignore();
 		getline(cin, temp);
 		cur->teacherName = temp;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
 	case 4:
+		system("cls");
 		cout << "Please enter the content you want to replace: ";
 		cin >> temp1;
 		cur->numberOfCredit = temp1;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
 	case 5:
+		system("cls");
 		cout << "Please enter the content you want to replace: ";
 		cin >> temp1;
 		cur->numberOfStudents = temp1;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
 	case 6:
+		system("cls");
 		cout << "Please enter the content you want to replace for session 1: ";
 		cin.ignore();
 		getline(cin,temp);
@@ -198,7 +214,11 @@ choose:
 		cout << "Please enter the content you want to replace for session 2: \n";
 		getline(cin, temp);
 		cur->session2 = temp;
-		break;
+		cout << "Content Updated Succesfully\n";
+		system("pause");
+		goto update;
+	case 7:
+		return;
 	default:
 		cout << "Invalid choice! Please enter your choice again: ";
 		goto choose;
@@ -212,7 +232,6 @@ void deleteCourse(Year* year)
 		cout << "\nNo information.";
 		return;
 	}
-	int i = 1;
 	string yeartemp;
 	string semestertemp;
 	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
@@ -236,8 +255,7 @@ nextdelete:
 		return;
 	}
 	cout << "Please enter the semester you want to access: ";
-	cin.ignore();
-	getline(cin, semestertemp);
+	getline(cin, semestertemp,'\n');
 	Semester* cur2 = cur1->firstSemester;
 	while (cur2 && cur2->nameSemester != semestertemp)
 		cur2 = cur2->next;
@@ -246,25 +264,57 @@ nextdelete:
 		cout << "Invalid Semester! Please try again.";
 		return;
 	}
+no:
+	system("cls");
 	Course* cur3 =cur2->firstCourse ;
 	int choice;
+	int i = 1;
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, 12);
+	cout << "\n\t\t\t\t\t      - - - - DELETE - - - -";
+	SetConsoleTextAttribute(h, 7);
+	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *";
 	while (cur3)
 	{
-		cout << "\nPress " << i++ << " to delete " << cur3->courseName << '\n';
+		cout << "\n\t\t\t\t*  \t      "<<i++<<". " << setw(33) << left << cur3->courseName<< "* ";
 		cur3 = cur3->next;
 	}
-	cout << "Your choice: ";
+	cout << "\n\t\t\t\t*  \t      " << i++ << ". " << setw(33) << left << "Lap trinh huong doi tuong" << "* ";
+	cout << "\n\t\t\t\t*  \t      " << i << ". " << setw(33) << left << "Back" << "* ";
+	cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *";
+	SetConsoleTextAttribute(h, 12);
+	cout << "\n\t\t\t\t[ Your choice ]: ";
+	SetConsoleTextAttribute(h, 7);
 	cin >> choice;
+	if (choice == i)
+		return;
 	while (choice > i || choice < 1)
 	{
-		cout << "Invalid choice! Please enter your choice again: ";
+		cout << "\n\t\t\t\tInvalid choice! Please enter your choice again: ";
 		cin >> choice;
 	}
 	Course* cur = findPos(cur2->firstCourse, choice);
+	char delete1;
 	Course* temp = nullptr;
-	for (temp =cur2->firstCourse; temp->next != cur; temp = temp->next);
-	temp->next = cur->next;
-	delete cur;
+	cout << "\n\t\t\t\tDo you want to delete " << cur->courseName <<" ? (y/n)";
+	SetConsoleTextAttribute(h, 12);
+	cout << "\n\t\t\t\t[ Your choice ]: ";
+	SetConsoleTextAttribute(h, 7);
+else1:
+	cin >> delete1;
+	if (delete1 == 'y')
+	{
+		for (temp = cur2->firstCourse; temp->next != cur; temp = temp->next);
+		temp->next = cur->next;
+		delete cur;
+	}
+	else if (delete1 == 'n')
+		goto no;
+	else
+	{
+		cout << "\n\t\t\t\tInvalid choice! Please enter your choice again: ";
+		goto else1;
+	}
 }
 //#include "file.h"
 //
