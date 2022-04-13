@@ -141,5 +141,6 @@ void viewStuCourse(Year* year)
 		cout << setw(10) << left << stu->gender;
 		cout << setw(15) << left << stu->dateOfBirth;
 		cout << setw(15) << left << stu->socialID;
+		stu = stu->next;
 	}
 }
