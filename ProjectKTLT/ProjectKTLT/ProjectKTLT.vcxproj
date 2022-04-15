@@ -168,6 +168,7 @@
     <ClInclude Include="file.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="2021-2022Fall001.csv" />
     <None Include="21CLC02.csv" />
     <None Include="22CLC01.csv" />
     <None Include="22CLC02.csv" />

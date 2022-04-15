@@ -14,18 +14,6 @@ struct Mark
     int final = -1;
     int mid = -1;
 };
-struct copyCourse
-{
-    string courseID;
-    string courseName;
-    string teacherName;
-    string numberOfCredit;
-    int numberOfStudents;
-    string session1;
-    string session2;
-    Mark mark;
-    copyCourse* next = nullptr;
-};
 struct Student
 {
     string Number;
@@ -35,16 +23,7 @@ struct Student
     string gender;
     string dateOfBirth;
     string socialID;
-    copyCourse* firstCourse = nullptr;
     Student* next = nullptr;
-};
-struct Account
-{
-    string username;
-    string password;
-    int type;
-    Student* myInfo = nullptr;
-    Account* next = nullptr;
 };
 struct Class
 {
@@ -75,6 +54,7 @@ struct Course
     string session2;
     courseStudent* firstcourseStudent = nullptr;
     Course* next = nullptr;
+    Mark mark;
 };
 struct Semester
 {
@@ -91,6 +71,15 @@ struct Year
     string nameYear;
     Year* next = nullptr;
     Semester* firstSemester = nullptr;
+};
+struct Account
+{
+    string username;
+    string password;
+    int type;
+    Student* myInfo = nullptr;
+    Year* firstYear = nullptr;
+    Account* next = nullptr;
 };
 Course* findPos(Course* year, int choice);
 void readStudentListMain(Year*& firstYear);
@@ -122,12 +111,12 @@ void readCourseList(Year*& firstYear);
 void writeCourseList(Year*& firstYear);
 void readCourseStudentList(Year*& firstYear);
 void writeCourseStudentList(Year*& firstYear);
-bool checkexistCourse(Course* cur, Account* userAcc);
+bool checkexistCourse(Year*curY,Semester*curSe,Course* curC, Account* userAcc);
 void putStuInCourse(Course* cur, Account* userAcc);
-void updateMyC(Course* cur, Account* userAcc);
+void updateMyC(Year* curY, Semester* curSe, Course* curC, Account* userAcc);
 bool checkNumStu(Course* cur);
-bool checkNumCourse(Account* userAcc);
-bool checkCourse(Course* cur, Account* userAcc);
+bool checkNumCourse(Year* curY, Semester* curSe, Account* userAcc);
+bool checkCourse(Year* curY, Semester* curSe, Course* curC, Account* userAcc);
 void enrollCourse(Year*& firstYear, Account*& userAcc);
 void exportCourseStudent(Year*& firstYear);
 void importScoreBoard(Year*& firstYear);

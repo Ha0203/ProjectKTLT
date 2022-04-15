@@ -37,7 +37,6 @@ void enrollCourse(Year*&firstYear, Account*&userAcc)
 		cout << "\nNot in the course registration session.";
 		return;
 	}
-	//Phi
 start:
 	Course* curCourse = curSemester->firstCourse;
 	system("cls");
@@ -113,21 +112,21 @@ choose:
 			break;
 		}
 		//Xem course co thoa man hay k
-		if (checkexistCourse(curCourse,userAcc) == true)
+		if (checkexistCourse(curYear,curSemester,curCourse,userAcc) == true)
 		{
 			cout << "\n\tYou have already enrolled this course.\n\t";
 			system("pause");
 			goto start;
 			break;
 		}
-		if (checkCourse(curCourse,userAcc) == false)
+		if (checkCourse(curYear,curSemester,curCourse,userAcc) == false)
 		{
 			cout << "\n\tThis course is conflicted.\n\t";
 			system("pause");
 			goto start;
 			break;
 		}
-		if (checkNumCourse(userAcc) == false)
+		if (checkNumCourse(curYear,curSemester,userAcc) == false)
 		{
 			cout << "\n\tYou can only enroll at most 5 courses.\n\t";
 			system("pause");
@@ -141,13 +140,35 @@ choose:
 			break;
 		}
 		//Cap nhat course vao du lieu cua sinh vien
-		updateMyC(curCourse, userAcc);
+		updateMyC(curYear,curSemester,curCourse, userAcc);
 		putStuInCourse(curCourse, userAcc);
 	}
 	case 2:
 	{
-		copyCourse* cur = userAcc->myInfo->firstCourse;
-		if (cur == nullptr)
+		Year* myY = userAcc->firstYear;
+		while (myY != nullptr && myY->nameYear != curYear -> nameYear)
+		{
+			myY = myY->next;
+		}
+		if (myY == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
+		Semester* mySe = myY->firstSemester;
+		while (mySe != nullptr && mySe->nameSemester != curSemester->nameSemester)
+		{
+			mySe = mySe->next;
+		}
+		if (mySe == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
+		Course* myC = mySe->firstCourse;
+		if (myC == nullptr)
 		{
 			cout << "\n\tYou have not enrolled any courses.\n\t";
 			system("pause");
@@ -162,17 +183,17 @@ choose:
 		cout << setw(15) << left << "Session 1";
 		cout << setw(15) << left << "Session 2";
 		cout << "Teacher";
-		while (cur != nullptr)
+		while (myC != nullptr)
 		{
 			cout << endl;
-			cout << '\t'<<setw(14) << left << cur->courseID;
-			cout << setw(26) << left << cur->courseName;
-			cout << setw(11) << left << cur->numberOfCredit;
-			cout << setw(13) << left << cur->numberOfStudents;
-			cout << setw(15) << left << cur->session1;
-			cout << setw(15) << left << cur->session2;
-			cout << cur->teacherName;
-			cur = cur->next;
+			cout << '\t'<<setw(14) << left << myC->courseID;
+			cout << setw(26) << left << myC->courseName;
+			cout << setw(11) << left << myC->numberOfCredit;
+			cout << setw(13) << left << myC->numberOfStudents;
+			cout << setw(15) << left << myC->session1;
+			cout << setw(15) << left << myC->session2;
+			cout << myC->teacherName;
+			myC = myC->next;
 		}
 		cout << endl<<'\t';
 		system("pause");
@@ -180,27 +201,55 @@ choose:
 	}
 	case 3:
 	{
-		copyCourse* cur = userAcc->myInfo->firstCourse;
+		Year* myY = userAcc->firstYear;
+		while (myY != nullptr && myY->nameYear != curYear->nameYear)
+		{
+			myY = myY->next;
+		}
+		if (myY == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
+		Semester* mySe = myY->firstSemester;
+		while (mySe != nullptr && mySe->nameSemester != curSemester->nameSemester)
+		{
+			mySe = mySe->next;
+		}
+		if (mySe == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
+		Course* myC = mySe->firstCourse;
+		if (myC == nullptr)
+		{
+			cout << "\n\tYou have not enrolled any courses.\n\t";
+			system("pause");
+			goto start;
+		}
 		system("cls");
 		cout << "\n\t\t\t\t------------------YOUR ENROLLED COURSES------------------\n\n";
-		cout << '\t'<<setw(14) << left << "Course ID";
+		cout << '\t' << setw(14) << left << "Course ID";
 		cout << setw(26) << left << "Course Name";
 		cout << setw(11) << left << "Credit";
 		cout << setw(13) << left << "Students";
 		cout << setw(15) << left << "Session 1";
 		cout << setw(15) << left << "Session 2";
 		cout << "Teacher";
-		while (cur != nullptr)
+		while (myC != nullptr)
 		{
 			cout << endl;
-			cout << '\t'<<setw(14) << left << cur->courseID;
-			cout << setw(26) << left << cur->courseName;
-			cout << setw(11) << left << cur->numberOfCredit;
-			cout << setw(13) << left << cur->numberOfStudents;
-			cout << setw(15) << left << cur->session1;
-			cout << setw(15) << left << cur->session2;
-			cout << cur->teacherName;
-			cur = cur->next;
+			cout << '\t' << setw(14) << left << myC->courseID;
+			cout << setw(26) << left << myC->courseName;
+			cout << setw(11) << left << myC->numberOfCredit;
+			cout << setw(13) << left << myC->numberOfStudents;
+			cout << setw(15) << left << myC->session1;
+			cout << setw(15) << left << myC->session2;
+			cout << myC->teacherName;
+			myC = myC->next;
 		}
 		cout << endl;
 		cout << "\n\n\tInput the course ID you want to remove: ";
@@ -218,17 +267,17 @@ choose:
 			goto start;
 			break;
 		}
-		if (checkexistCourse == 0)
+		if (checkexistCourse(curYear,curSemester,curCourse,userAcc) == 0)
 		{
 			cout << "\n\tDon't have this course in your enrolled list to remove.\n\t";
 			system("pause");
 			goto start;
 			break;
 		}
-		copyCourse* myC = userAcc->myInfo->firstCourse;
+		myC = mySe->firstCourse;
 		if (myC->courseID == curCourse->courseID)
 		{
-			userAcc->myInfo->firstCourse = myC->next;
+			mySe->firstCourse = myC->next;
 			delete myC;
 		}
 		else
@@ -237,8 +286,8 @@ choose:
 			{
 				myC = myC->next;
 			}
-			copyCourse* temp = myC->next;
-			myC = myC->next->next;
+			Course* temp = myC->next;
+			myC->next = myC->next->next;
 			delete temp;
 		}
 		courseStudent* curStu = curCourse->firstcourseStudent;
@@ -268,16 +317,26 @@ choose:
 	}
 	}
 }
-bool checkCourse(Course* cur, Account* userAcc)
+bool checkCourse(Year*curY,Semester*curSe,Course* curC, Account* userAcc)
 {
-	copyCourse* myC = userAcc->myInfo->firstCourse;
+	Year* myY = userAcc->firstYear;
+	while (myY != nullptr && myY->nameYear != curY->nameYear)
+		myY = myY->next;
+	if (myY == nullptr)
+		return 1;
+	Semester* mySe = myY->firstSemester;
+	while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
+		mySe = mySe->next;
+	if (mySe == nullptr)
+		return 1;
+	Course* myC = mySe->firstCourse;
 	if (myC == nullptr)
 	{
 		return 1;
 	}
 	while (myC != nullptr)
 	{
-		if (myC->session1 == cur->session1 || myC->session1 == cur->session2 || myC->session2 == cur->session1 || myC->session2 == cur->session2)
+		if (myC->session1 == curC->session1 || myC->session1 == curC->session2 || myC->session2 == curC->session1 || myC->session2 == curC->session2)
 		{
 			return 0;
 		}
@@ -285,9 +344,19 @@ bool checkCourse(Course* cur, Account* userAcc)
 	}
 	return 1;
 }
-bool checkNumCourse(Account* userAcc)
+bool checkNumCourse(Year*curY,Semester*curSe,Account* userAcc)
 {
-	copyCourse* myC = userAcc->myInfo->firstCourse;
+	Year* myY = userAcc->firstYear;
+	while (myY != nullptr && myY->nameYear != curY->nameYear)
+		myY = myY->next;
+	if (myY == nullptr)
+		return 1;
+	Semester* mySe = myY->firstSemester;
+	while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
+		mySe = mySe->next;
+	if (mySe == nullptr)
+		return 1;
+	Course* myC = mySe->firstCourse;
 	int n = 0;
 	while (myC != nullptr)
 	{
@@ -313,29 +382,42 @@ bool checkNumStu(Course* cur)
 	else
 		return 0;
 }
-void updateMyC(Course* cur, Account* userAcc)
+void updateMyC(Year*curYear,Semester*curSemester,Course* curCourse, Account* userAcc)
 {
-	copyCourse* myC = userAcc->myInfo->firstCourse;
-	if (myC == nullptr)
+	Year* myY = userAcc->firstYear;
+	while (myY != nullptr && myY->nameYear != curYear->nameYear)
 	{
-		userAcc->myInfo->firstCourse = new copyCourse;
-		myC = userAcc->myInfo->firstCourse;
+		myY = myY->next;
 	}
-	else
+	if (myY == nullptr)
 	{
-		while (myC->next != nullptr)
-			myC = myC->next;
-		myC->next = new copyCourse;
-		myC = myC->next;
+		myY = new Year;
+		myY->next = userAcc->firstYear;
+		userAcc->firstYear = myY;
+		myY->nameYear = curYear->nameYear;
 	}
-	myC->next = nullptr;
-	myC->courseID = cur->courseID;
-	myC->courseName = cur->courseName;
-	myC->teacherName = cur->teacherName;
-	myC->numberOfCredit = cur->numberOfCredit;
-	myC->numberOfStudents = cur->numberOfStudents;
-	myC->session1 = cur->session1;
-	myC->session2 = cur->session2;
+	Semester* mySe = myY->firstSemester;
+	while (mySe != nullptr && mySe->nameSemester != curSemester->nameSemester)
+	{
+		mySe = mySe->next;
+	}
+	if (mySe == nullptr)
+	{
+		mySe = new Semester;
+		mySe->next = myY->firstSemester;
+		myY->firstSemester = mySe;
+		mySe->nameSemester = curSemester->nameSemester;
+	}
+	Course* myC = new Course;
+	myC->next = mySe->firstCourse;
+	mySe->firstCourse = myC;
+	myC->courseID = curCourse->courseID;
+	myC->courseName = curCourse->courseName;
+	myC->teacherName = curCourse->teacherName;
+	myC->numberOfCredit = curCourse->numberOfCredit;
+	myC->numberOfStudents = curCourse->numberOfStudents;
+	myC->session1 = curCourse->session1;
+	myC->session2 = curCourse->session2;
 }
 void putStuInCourse(Course* cur, Account* userAcc)
 {
@@ -363,19 +445,22 @@ void putStuInCourse(Course* cur, Account* userAcc)
 	curStu->dateOfBirth = userAcc->myInfo->dateOfBirth;
 	curStu->socialID = userAcc->myInfo->socialID;
 }
-bool checkexistCourse(Course* cur, Account* userAcc)
+bool checkexistCourse(Year*curY,Semester*curSe,Course* curC, Account* userAcc)
 {
-	copyCourse* myC = userAcc->myInfo->firstCourse;
+	Year* myY = userAcc->firstYear;
+	while (myY != nullptr && myY->nameYear != curY->nameYear)
+		myY = myY->next;
+	if (myY == nullptr)
+		return 0;
+	Semester* mySe = myY->firstSemester;
+	while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
+		mySe = mySe->next;
+	if (mySe == nullptr)
+		return 0;
+	Course* myC = mySe->firstCourse;
+	while (myC != nullptr && myC->courseID != curC->courseID)
+		myC = myC->next;
 	if (myC == nullptr)
 		return 0;
-	else
-	{
-		while (myC != nullptr)
-		{
-			if (myC->courseID == cur->courseID)
-				return 1;
-			myC = myC->next;
-		}
-	}
-	return 0;
+	return 1;
 }

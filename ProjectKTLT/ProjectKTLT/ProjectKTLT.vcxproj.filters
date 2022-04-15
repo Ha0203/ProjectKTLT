@@ -154,5 +154,8 @@
     <None Include="CourseStudentListDemo.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="2021-2022Fall001.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
