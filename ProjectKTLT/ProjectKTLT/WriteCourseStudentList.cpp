@@ -19,9 +19,11 @@ void writeCourseStudentList(Year*& firstYear)
 			while (curCo != nullptr)
 			{
 				courseStudent* curStu = curCo->firstcourseStudent;
+				int i = 0;
 				while (curStu != nullptr)
 				{
-					output << curYear->nameYear << "," << curSe->nameSemester << "," << curCo->courseID << "," << curStu->Number << "," << curStu->studentID << "," << curStu->firstName << "," << curStu->lastName << "," << curStu->gender << "," << curStu->dateOfBirth << "," << curStu->socialID << "\n";
+					i++;
+					output << curYear->nameYear << "," << curSe->nameSemester << "," << curCo->courseID << "," << i << "," << curStu->studentID << "," << curStu->firstName << "," << curStu->lastName << "," << curStu->gender << "," << curStu->dateOfBirth << "," << curStu->socialID << "\n";
 					curStu = curStu->next;
 				}
 				curCo = curCo->next;

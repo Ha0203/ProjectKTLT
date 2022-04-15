@@ -157,7 +157,6 @@
     <ClCompile Include="updatemyInfo.cpp" />
     <ClCompile Include="ViewClasses.cpp" />
     <ClCompile Include="ViewCourses.cpp" />
-    <ClCompile Include="viewMyCourse.cpp" />
     <ClCompile Include="WriteCourseList.cpp" />
     <ClCompile Include="WriteCourseStudentList.cpp" />
     <ClCompile Include="WriteSemesterList.cpp" />
@@ -169,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="2021-2022Fall001.csv" />
+    <None Include="2022-2023Fall005.csv" />
+    <None Include="2022-2023Fall006.csv" />
+    <None Include="2022-2023Fall007.csv" />
     <None Include="21CLC02.csv" />
     <None Include="22CLC01.csv" />
     <None Include="22CLC02.csv" />

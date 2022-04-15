@@ -48,9 +48,6 @@
     <ClCompile Include="deleteAllAcc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="viewMyCourse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="updatemyInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -155,6 +152,15 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="2021-2022Fall001.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="2022-2023Fall005.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="2022-2023Fall006.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="2022-2023Fall007.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

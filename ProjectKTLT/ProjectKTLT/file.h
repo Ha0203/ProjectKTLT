@@ -119,4 +119,4 @@ bool checkNumCourse(Year* curY, Semester* curSe, Account* userAcc);
 bool checkCourse(Year* curY, Semester* curSe, Course* curC, Account* userAcc);
 void enrollCourse(Year*& firstYear, Account*& userAcc);
 void exportCourseStudent(Year*& firstYear);
-void importScoreBoard(Year*& firstYear);
+void importScoreBoard(Year*& firstYear, Account*& userAcc);

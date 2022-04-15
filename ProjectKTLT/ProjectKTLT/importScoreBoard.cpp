@@ -5,7 +5,7 @@
 #include "file.h"
 using namespace std;
 
-void importScoreBoard(Year*& firstYear)
+void importScoreBoard(Year*& firstYear,Account*&userAcc)
 {
 	fstream input;
 	Year* curYear = firstYear;
@@ -39,6 +39,37 @@ void importScoreBoard(Year*& firstYear)
 					curStu->mark.final = stoi(temp);
 					getline(ss, temp, ',');
 					curStu->mark.mid = stoi(temp);
+					if (curStu->studentID == userAcc->myInfo->studentID)
+					{
+						Year* myY = userAcc->firstYear;
+						while (myY != nullptr && myY->nameYear != curYear->nameYear)
+						{
+							myY = myY->next;
+						}
+						if (myY == nullptr)
+						{
+							myY = new Year;
+							myY->next = userAcc->firstYear;
+							userAcc->firstYear = myY;
+							myY->nameYear = curYear->nameYear;
+						}
+						Semester* mySe = myY->firstSemester;
+						while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
+						{
+							mySe = mySe->next;
+						}
+						if (mySe == nullptr)
+						{
+							mySe = new Semester;
+							mySe->next = myY->firstSemester;
+							myY->firstSemester = mySe;
+							mySe->nameSemester = curSe->nameSemester;
+						}
+						Course* myC = mySe->firstCourse;
+						myC->mark.final = curStu->mark.final;
+						myC->mark.mid = curStu->mark.mid;
+						myC->mark.total = curStu->mark.total;
+					}
 					curStu = curStu->next;
 				}
 				input.close();

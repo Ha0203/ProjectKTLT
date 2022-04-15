@@ -99,7 +99,7 @@ choose:
 		cout << "\n\n\n\tInput the course ID you want to enroll: ";
 		string temp;
 		cin >> temp;
-		Course* curCourse = curSemester->firstCourse;
+		curCourse = curSemester->firstCourse;
 		while (curCourse != nullptr && curCourse->courseID != temp)
 		{
 			curCourse = curCourse->next;

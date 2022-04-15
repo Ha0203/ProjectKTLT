@@ -13,7 +13,7 @@ void updatemyInfo(Account* userAcc, Year* firstYear)
 		Class* curClass = curYear->firstClass;
 		while (curClass != nullptr)
 		{
-			Student* curStudent = curYear->firstClass->firstStudent;
+			Student* curStudent = curClass->firstStudent;
 			while (curStudent != nullptr)
 			{
 				if (curStudent->studentID == userAcc->username)
