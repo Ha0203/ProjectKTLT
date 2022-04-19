@@ -201,7 +201,7 @@ void menu(Account* userAcc)
 			{
 			case 1:
 				system("cls");
-
+				viewCourseScore(firstYear);
 				cout << endl;
 				system("pause");
 				break;

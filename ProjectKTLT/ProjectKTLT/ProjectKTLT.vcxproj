@@ -157,6 +157,7 @@
     <ClCompile Include="updatemyInfo.cpp" />
     <ClCompile Include="ViewClasses.cpp" />
     <ClCompile Include="ViewCourses.cpp" />
+    <ClCompile Include="viewScoreBoard.cpp" />
     <ClCompile Include="WriteCourseList.cpp" />
     <ClCompile Include="WriteCourseStudentList.cpp" />
     <ClCompile Include="WriteSemesterList.cpp" />

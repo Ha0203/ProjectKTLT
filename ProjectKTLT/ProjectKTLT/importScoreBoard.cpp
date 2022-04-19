@@ -20,12 +20,12 @@ void importScoreBoard(Year*& firstYear,Account*&userAcc)
 			{
 				courseStudent* curStu = curCo->firstcourseStudent;
 				string filename = curYear->nameYear + curSe->nameSemester + curCo->courseID+".csv";
-				input.open(filename.c_str(), ios::out);
+				input.open(filename.c_str(), ios::in);
 				if (input.fail())
 				{
 					cout << "Can't find the file "<< filename << ".csv" << endl;
-					break;
-
+					curCo = curCo->next;
+					continue;
 				}
 				while (getline(input, row) && curStu!=nullptr)
 				{
@@ -39,7 +39,7 @@ void importScoreBoard(Year*& firstYear,Account*&userAcc)
 					curStu->mark.final = stoi(temp);
 					getline(ss, temp, ',');
 					curStu->mark.mid = stoi(temp);
-					if (curStu->studentID == userAcc->myInfo->studentID)
+					if (userAcc->myInfo != nullptr && curStu->studentID == userAcc->myInfo->studentID)
 					{
 						Year* myY = userAcc->firstYear;
 						while (myY != nullptr && myY->nameYear != curYear->nameYear)

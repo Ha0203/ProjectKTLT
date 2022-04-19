@@ -33,7 +33,7 @@ struct Class
 };
 struct courseStudent
 {
-    int Number;
+    int Number = -1;
     string studentID;
     string firstName;
     string lastName;
@@ -49,7 +49,7 @@ struct Course
     string courseName;
     string teacherName;
     string numberOfCredit;
-    int numberOfStudents;
+    int numberOfStudents = 50;
     string session1;
     string session2;
     courseStudent* firstcourseStudent = nullptr;
@@ -91,7 +91,6 @@ void viewCourses(Year* year);
 void update(Year* year);
 void deleteCourse(Year* year);
 void readUserList(Account*& pAcc);
-void Menu(Account* userAcc);
 void updateClass(Year*&firstYear);
 void writeStudentListMain(Year*& firstYear);
 void writeUserList(Account*& pAcc);
@@ -120,3 +119,4 @@ bool checkCourse(Year* curY, Semester* curSe, Course* curC, Account* userAcc);
 void enrollCourse(Year*& firstYear, Account*& userAcc);
 void exportCourseStudent(Year*& firstYear);
 void importScoreBoard(Year*& firstYear, Account*& userAcc);
+void viewCourseScore(Year* firstYear);

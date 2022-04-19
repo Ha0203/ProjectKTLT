@@ -192,8 +192,8 @@ choose:
 	case 4:
 		system("cls");
 		cout << "Please enter the content you want to replace: ";
-		cin >> temp1;
-		cur->numberOfCredit = temp1;
+		cin >> temp;
+		cur->numberOfCredit = temp;
 		cout << "Content Updated Succesfully\n";
 		system("pause");
 		goto update;
