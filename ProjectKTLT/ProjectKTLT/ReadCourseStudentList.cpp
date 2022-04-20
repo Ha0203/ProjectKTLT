@@ -5,7 +5,7 @@
 #include "file.h"
 using namespace std;
 
-void readCourseStudentList(Year*& firstYear)
+void readCourseStudentList(Year*& firstYear,Account*& userAcc)
 {
 	string temp, row;
 	fstream input;
@@ -70,6 +70,55 @@ void readCourseStudentList(Year*& firstYear)
 							curStu->next = newStu;
 						}
 						newStu->next = nullptr;
+						if (userAcc->myInfo != nullptr && newStu->studentID == userAcc->myInfo->studentID)
+						{
+							Year* myY = userAcc->firstYear;
+							while (myY != nullptr && myY->nameYear != curYear->nameYear)
+							{
+								myY = myY->next;
+							}
+							if (myY == nullptr)
+							{
+								Year*newY = new Year;
+								newY->next = userAcc->firstYear;
+								userAcc->firstYear = newY;
+								newY->nameYear = curYear->nameYear;
+								myY = newY;
+							}
+							Semester* mySe = myY->firstSemester;
+							while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
+							{
+								mySe = mySe->next;
+							}
+							if (mySe == nullptr)
+							{
+								Semester*newSe = new Semester;
+								newSe->next = myY->firstSemester;
+								myY->firstSemester = newSe;
+								newSe->nameSemester = curSe->nameSemester;
+								mySe = newSe;
+							}
+							Course* myC = mySe->firstCourse;
+							while (myC != nullptr && myC->courseID != curCo->courseID)
+							{
+								myC = myC->next;
+							}
+							if (myC == nullptr)
+							{
+								Course* newCo = new Course;
+								newCo->next = mySe->firstCourse;
+								mySe->firstCourse = newCo;
+								newCo->courseID = curCo->courseID;
+								myC = newCo;
+								myC->courseID = curCo->courseID;
+								myC->courseName = curCo->courseName;
+								myC->teacherName = curCo->teacherName;
+								myC->numberOfCredit = curCo->numberOfCredit;
+								myC->numberOfStudents = curCo->numberOfStudents;
+								myC->session1 = curCo->session1;
+								myC->session2 = curCo->session2;
+							}
+						}
 					}
 				}
 			}

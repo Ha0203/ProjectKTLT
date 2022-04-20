@@ -14,10 +14,10 @@ void menu(Account* userAcc)
 	readStudentListMain(firstYear);
 	readSemesterList(firstYear);
 	readCourseList(firstYear);
-	readCourseStudentList(firstYear);
-	importScoreBoard(firstYear,userAcc);
 	if (userAcc->type == 1)
 	{
+		readCourseStudentList(firstYear, userAcc);
+		importScoreBoard(firstYear, userAcc);
 	back:
 		system("cls");
 		SetConsoleTextAttribute(h, 12);
@@ -261,6 +261,8 @@ void menu(Account* userAcc)
 	else if (userAcc->type == 0)
 	{
 	updatemyInfo(userAcc, firstYear);
+	readCourseStudentList(firstYear, userAcc);
+	importScoreBoard(firstYear, userAcc);
 	int choice5;
 back1:
 	system("cls");

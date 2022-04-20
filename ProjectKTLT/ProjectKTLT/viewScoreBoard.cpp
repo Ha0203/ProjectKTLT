@@ -58,8 +58,51 @@ void updateScore(Year* firstYear)
 {
 
 }
-//Phi
+//Định dạng xem điểm của hàm viewMyScore
+//STT CourseName Total Final Mid 
+//1      VTP       7     8    5
+//2      VLDC      5     8    3
+//3      NMLT      6     6    6
 void viewMyScore(Account*userAcc)
 {
-	
+	int num = 0;
+	string temp;
+	cout << "\nInput the school year (Ex: 2021-2022): ";
+	cin >> temp;
+	Year* curYear = userAcc->firstYear;
+	while (curYear != nullptr && curYear->nameYear != temp)
+	{
+		curYear = curYear->next;
+	}
+	if (curYear == nullptr)
+	{
+		cout << "\nThis year has not been created yet.";
+		return;
+	}
+	cout << "\nInput the name of semester (Ex: Fall): ";
+	cin >> temp;
+	Semester* curSemester = curYear->firstSemester;
+	while (curSemester != nullptr && curSemester->nameSemester != temp)
+	{
+		curSemester = curSemester->next;
+	}
+	if (curSemester == nullptr)
+	{
+		cout << "\nThis semester has not been created yet.";
+		return;
+	}
+	Course* curC = curSemester->firstCourse;
+	if (curC == nullptr)
+	{
+		cout << "\nYou haven't enrolled any courses yet";
+		return;
+	}
+	cout << "\n-----Your Score----\n";
+	cout << "STT\t" << "CourseName\t" << "Total\t" << "Final\t" << "Mid\n";
+	int stt = 0;
+	for (curC = curSemester->firstCourse; curC != nullptr; curC = curC->next)
+	{
+		stt++;
+		cout << stt << "\t" << curC->courseName << "\t" << curC->mark.total << "\t" << curC->mark.final << "\t" << curC->mark.mid << "\n";
+	}
 }

@@ -108,7 +108,7 @@ void readSemesterList(Year*& firstYear);
 void writeSemesterList(Year*& firstYear);
 void readCourseList(Year*& firstYear);
 void writeCourseList(Year*& firstYear);
-void readCourseStudentList(Year*& firstYear);
+void readCourseStudentList(Year*& firstYear,Account*& userAcc);
 void writeCourseStudentList(Year*& firstYear);
 bool checkexistCourse(Year*curY,Semester*curSe,Course* curC, Account* userAcc);
 void putStuInCourse(Course* cur, Account* userAcc);

@@ -32,11 +32,6 @@ void enrollCourse(Year*&firstYear, Account*&userAcc)
 		cout << "\nThis semester has not been created yet.";
 		return;
 	}
-	if (curSemester->registSession == 0)
-	{
-		cout << "\nNot in the course registration session.";
-		return;
-	}
 start:
 	Course* curCourse = curSemester->firstCourse;
 	system("cls");
@@ -74,6 +69,11 @@ choose:
 	{
 	case 1:
 	{
+		if (curSemester->registSession == 0)
+		{
+			cout << "\nNot in the course registration session.";
+			return;
+		}
 		curCourse = curSemester->firstCourse;
 		system("cls");
 		cout << "\n\t\t\t\t------------------COURSES IN THIS SEMESTER------------------\n\n";
@@ -111,7 +111,6 @@ choose:
 			goto start;
 			break;
 		}
-		//Xem course co thoa man hay k
 		if (checkexistCourse(curYear,curSemester,curCourse,userAcc) == true)
 		{
 			cout << "\n\tYou have already enrolled this course.\n\t";
@@ -139,7 +138,6 @@ choose:
 			goto start;
 			break;
 		}
-		//Cap nhat course vao du lieu cua sinh vien
 		updateMyC(curYear,curSemester,curCourse, userAcc);
 		putStuInCourse(curCourse, userAcc);
 	}
@@ -201,6 +199,11 @@ choose:
 	}
 	case 3:
 	{
+		if (curSemester->registSession == 0)
+		{
+			cout << "\nNot in the course registration session.";
+			return;
+		}
 		Year* myY = userAcc->firstYear;
 		while (myY != nullptr && myY->nameYear != curYear->nameYear)
 		{

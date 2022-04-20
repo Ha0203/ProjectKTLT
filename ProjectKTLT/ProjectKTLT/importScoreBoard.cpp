@@ -48,10 +48,7 @@ void importScoreBoard(Year*& firstYear,Account*&userAcc)
 						}
 						if (myY == nullptr)
 						{
-							myY = new Year;
-							myY->next = userAcc->firstYear;
-							userAcc->firstYear = myY;
-							myY->nameYear = curYear->nameYear;
+							continue;
 						}
 						Semester* mySe = myY->firstSemester;
 						while (mySe != nullptr && mySe->nameSemester != curSe->nameSemester)
@@ -60,12 +57,15 @@ void importScoreBoard(Year*& firstYear,Account*&userAcc)
 						}
 						if (mySe == nullptr)
 						{
-							mySe = new Semester;
-							mySe->next = myY->firstSemester;
-							myY->firstSemester = mySe;
-							mySe->nameSemester = curSe->nameSemester;
+							continue;
 						}
 						Course* myC = mySe->firstCourse;
+						while (myC != nullptr && myC->courseID != curCo->courseID)
+						{
+							myC = myC->next;
+						}
+						if (myC == nullptr)
+							continue;
 						myC->mark.final = curStu->mark.final;
 						myC->mark.mid = curStu->mark.mid;
 						myC->mark.total = curStu->mark.total;
