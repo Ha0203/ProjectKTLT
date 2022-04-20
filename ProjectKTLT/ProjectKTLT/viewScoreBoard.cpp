@@ -46,30 +46,96 @@ void viewCourseScore(Year* firstYear)
 	}
 	//Phi
 	courseStudent* curStu = curCourse->firstcourseStudent;
-	cout << "Number\t" << "StudentID\t" << "FirstName\t" << "LastName\t" << "TotalMark\t" << "MidtermMark\t" << "FinalMark\n";
+	cout << setw(15) << left << "Number";
+	cout << setw(15) << left << "StudentID";
+	cout << setw(15) << left << "FirstName";
+	cout << setw(15) << left << "LastName";
+	cout << setw(15) << left << "TotalMark";
+	cout << setw(15) << left << "MidtermMark";
+	cout << setw(15) << left << "FinalMark";
 	while (curStu != nullptr)
 	{
-		cout << curStu->Number << "\t" << curStu->studentID << "\t" << curStu->firstName << "\t" << curStu->lastName << "\t" << curStu->mark.total << "\t" << curStu->mark.mid << "\t" << curStu->mark.final << "\n";
+		cout << endl;
+		cout << setw(15) << left << curStu->Number;
+		cout << setw(15) << left << curStu->studentID;
+		cout << setw(15) << left << curStu->firstName;
+		cout << setw(15) << left << curStu->lastName;
+		cout << setw(15) << left << curStu->mark.total;
+		cout << setw(15) << left << curStu->mark.mid;
+		cout << setw(15) << left << curStu->mark.final;
 		curStu = curStu->next;
 	}
 }
 //Phi dựa trên hàm update trong ViewCourses.cpp
 void updateScore(Year* firstYear)
 {
-
-}
-//Định dạng xem điểm của hàm viewMyScore
-//STT CourseName Total Final Mid 
-//1      VTP       7     8    5
-//2      VLDC      5     8    3
-//3      NMLT      6     6    6
-void viewMyScore(Account*userAcc)
-{
-	int num = 0;
+	if (!firstYear)
+	{
+		cout << "\nNo information.";
+		return;
+	}
 	string temp;
-	cout << "\nInput the school year (Ex: 2021-2022): ";
+	cout << "Please enter the school year you want to access (Ex: 2021-2022): ";
+	cin.ignore();
+	getline(cin, temp);
+	Year* cur1 = firstYear;
+	while (cur1 && cur1->nameYear != temp)
+		cur1 = cur1->next;
+	if (!cur1)
+	{
+		cout << "\nInvalid year! Please try again.";
+		return; 
+	}
+	cout << "Which semester you want to access: ";
+	getline(cin, temp);
+	Semester* cur = firstYear->firstSemester;
+	while (cur && cur->nameSemester != temp)
+		cur = cur->next;
+	if (!cur)
+	{
+		cout << "\nInvalid semester! Please try again.";
+		return;
+	}
+	cout << "Which course you want to access: ";
+	getline(cin, temp);
+	Course* cur2 = cur->firstCourse;
+	while (cur2 && cur2->courseName != temp)
+		cur2 = cur2->next;
+	if (!cur2)
+	{
+		cout << "\nInvalid course! Please try again.";
+		return;
+	}
+	string StuID;
+	cout << "Please enter the Student's ID of the one you want to update result: ";
+	cin >> StuID;
+	courseStudent* curStu = cur2->firstcourseStudent;
+	while (curStu && curStu->studentID != StuID)
+		curStu = curStu->next;
+	if (!curStu)
+	{
+		cout << "Invalid student! Please try again";
+		return;
+	}
+	int mark;
+	cout << "Total Mark: ";
+	cin >> mark;
+	curStu->mark.total = mark;
+	cout << "Mid: ";
+	cin >> mark;
+	curStu->mark.mid = mark;
+	cout << "Final: ";
+	cin >> mark;
+	curStu->mark.final = mark;
+	cout << "\nContent updated successfully";
+}
+//Phi
+void viewMyScore(Account*userAcc, Year* firstYear)
+{
+	string temp;
+	cout << "\nInput the school year of yours (Ex: 2021-2022): ";
 	cin >> temp;
-	Year* curYear = userAcc->firstYear;
+	Year* curYear = firstYear;
 	while (curYear != nullptr && curYear->nameYear != temp)
 	{
 		curYear = curYear->next;
@@ -91,18 +157,54 @@ void viewMyScore(Account*userAcc)
 		cout << "\nThis semester has not been created yet.";
 		return;
 	}
-	Course* curC = curSemester->firstCourse;
-	if (curC == nullptr)
+	Year* myY = userAcc->firstYear;
+	while (myY != nullptr && myY->nameYear != curYear->nameYear)
 	{
-		cout << "\nYou haven't enrolled any courses yet";
+		myY = myY->next;
+	}
+	if (myY == nullptr)
+	{
+		cout << "\n\tYou have not enrolled any courses.\n\t";
+		system("pause");
 		return;
 	}
-	cout << "\n-----Your Score----\n";
-	cout << "STT\t" << "CourseName\t" << "Total\t" << "Final\t" << "Mid\n";
-	int stt = 0;
-	for (curC = curSemester->firstCourse; curC != nullptr; curC = curC->next)
+	Semester* mySe = myY->firstSemester;
+	while (mySe != nullptr && mySe->nameSemester != curSemester->nameSemester)
 	{
-		stt++;
-		cout << stt << "\t" << curC->courseName << "\t" << curC->mark.total << "\t" << curC->mark.final << "\t" << curC->mark.mid << "\n";
+		mySe = mySe->next;
+	}
+	if (mySe == nullptr)
+	{
+		cout << "\n\tYou have not enrolled any courses.\n\t";
+		system("pause");
+		return;
+	}
+	Course* myC = mySe->firstCourse;
+	if (myC == nullptr)
+	{
+		cout << "\n\tYou have not enrolled any courses.\n\t";
+		system("pause");
+		return;
+	}
+	system("cls");
+	cout << "\n\t\t\t\t\t- - - - SCOREBOARD - - - -\n\n";
+	cout << setw(15) << left << "CourseID";
+	cout << setw(30) << left << "Course Name";
+	cout << setw(23) << left << "Teacher Name";
+	cout << setw(15) << left << "TotalMark";
+	cout << setw(15) << left << "MidtermMark";
+	cout << setw(15) << left << "FinalMark";
+	cout << endl;
+	cout << "-------------------------------------------------------------------------------------------------------------\n";
+	while (myC)
+	{
+		cout << endl;
+		cout << setw(15) << left << myC->courseID;
+		cout << setw(30) << left << myC->courseName;
+		cout << setw(23) << left << myC->teacherName;
+		cout << setw(15) << left << myC->mark.total;
+		cout << setw(15) << left << myC->mark.mid;
+		cout << setw(15) << left << myC->mark.final;
+		myC = myC->next;
 	}
 }
