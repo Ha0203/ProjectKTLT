@@ -44,7 +44,6 @@ void viewCourseScore(Year* firstYear)
 		cout << "\n\tThis course has not been created yet.";
 		return;
 	}
-	//Phi
 	courseStudent* curStu = curCourse->firstcourseStudent;
 	cout << setw(15) << left << "Number";
 	cout << setw(15) << left << "StudentID";
@@ -66,7 +65,6 @@ void viewCourseScore(Year* firstYear)
 		curStu = curStu->next;
 	}
 }
-//Phi dựa trên hàm update trong ViewCourses.cpp
 void updateScore(Year* firstYear)
 {
 	if (!firstYear)
@@ -129,7 +127,6 @@ void updateScore(Year* firstYear)
 	curStu->mark.final = mark;
 	cout << "\nContent updated successfully";
 }
-//Phi
 void viewMyScore(Account*userAcc, Year* firstYear)
 {
 	string temp;

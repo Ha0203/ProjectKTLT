@@ -211,7 +211,7 @@ choose:
 		cin.ignore();
 		getline(cin,temp);
 		cur->session1 = temp;
-		cout << "Please enter the content you want to replace for session 2: \n";
+		cout << "Please enter the content you want to replace for session 2: ";
 		getline(cin, temp);
 		cur->session2 = temp;
 		cout << "Content Updated Succesfully\n";

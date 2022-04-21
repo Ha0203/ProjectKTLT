@@ -8,7 +8,7 @@ using namespace std;
 void writeUserList(Account*& pAcc)
 {
 	fstream output;
-	output.open("UserListDemo.csv", ios::out);
+	output.open("UserList.csv", ios::out);
 	Account* curAcc = pAcc;
 	while (curAcc != nullptr)
 	{

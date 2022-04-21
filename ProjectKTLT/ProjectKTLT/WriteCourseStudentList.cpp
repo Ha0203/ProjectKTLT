@@ -9,7 +9,7 @@ void writeCourseStudentList(Year*& firstYear)
 {
 	fstream output;
 	Year* curYear = firstYear;
-	output.open("CourseStudentListDemo.csv", ios::out);
+	output.open("CourseStudentList.csv", ios::out);
 	while (curYear != nullptr)
 	{
 		Semester* curSe = curYear->firstSemester;

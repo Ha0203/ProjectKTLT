@@ -120,3 +120,5 @@ void enrollCourse(Year*& firstYear, Account*& userAcc);
 void exportCourseStudent(Year*& firstYear);
 void importScoreBoard(Year*& firstYear, Account*& userAcc);
 void viewCourseScore(Year* firstYear);
+void updateScore(Year* firstYear);
+void viewMyScore(Account* userAcc, Year* firstYear);

@@ -43,7 +43,7 @@ void menu(Account* userAcc)
 			cout << "\n\t\t\t\t\t\t- - - - SCHOOL YEAR - - - -";
 			SetConsoleTextAttribute(h, 7);
 			cout << "\n\t\t\t\t\t* * * * * * * * * * * * * * * * * * * * * *";
-			cout << "\n\t\t\t\t\t*\t   1. Create School Year\t  *";//And update class for this school year
+			cout << "\n\t\t\t\t\t*\t   1. Create School Year\t  *";
 			cout << "\n\t\t\t\t\t*\t   2. Create Semester\t\t  *";
 			cout << "\n\t\t\t\t\t*\t   3. Back\t\t\t  *";
 			cout << "\n\t\t\t\t\t* * * * * * * * * * * * * * * * * * * * * *";
@@ -80,7 +80,7 @@ void menu(Account* userAcc)
 			cout << "\n\t\t\t\t\t\t  - - - - CLASSES - - - -";
 			SetConsoleTextAttribute(h, 7);
 			cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
-			cout << "\n\t\t\t\t*\t   1. Update Class\t\t\t\t  *";//For the available class
+			cout << "\n\t\t\t\t*\t   1. Update Class\t\t\t\t  *";
 			cout << "\n\t\t\t\t*\t   2. View The List Of Classes\t\t\t  *";
 			cout << "\n\t\t\t\t*\t   3. View The List Of Students In A Class\t  *";
 			cout << "\n\t\t\t\t*\t   4. Back\t\t\t\t\t  *";
@@ -188,9 +188,8 @@ void menu(Account* userAcc)
 			SetConsoleTextAttribute(h, 7);
 			cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
 			cout << "\n\t\t\t\t*  \t   1. View The Scoreboard Of A Course\t        *";
-			cout << "\n\t\t\t\t*  \t   2. View The Scoreboard Of A Class \t        *";
-			cout << "\n\t\t\t\t*  \t   3. Update A Student's Result\t\t        *";
-			cout << "\n\t\t\t\t*  \t   4. Back\t\t\t\t\t*";
+			cout << "\n\t\t\t\t*  \t   2. Update A Student's Result\t\t        *";
+			cout << "\n\t\t\t\t*  \t   3. Back\t\t\t\t\t*";
 			cout << "\n\t\t\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * * *";
 		again4:
 			SetConsoleTextAttribute(h, 12);
@@ -207,17 +206,11 @@ void menu(Account* userAcc)
 				break;
 			case 2:
 				system("cls");
-
+				updateScore(firstYear);
 				cout << endl;
 				system("pause");
 				break;
 			case 3:
-				system("cls");
-
-				cout << endl;
-				system("pause");
-				break;
-			case 4:
 				goto back;
 			default:
 				cout << "\n\t\t\t\tInvalid choice! Please try again.";
@@ -290,7 +283,7 @@ again5:
 		goto back1;
 	case 2:
 		system("cls");
-
+		viewMyScore(userAcc, firstYear);
 		cout << endl;
 		system("pause");
 		goto back1;

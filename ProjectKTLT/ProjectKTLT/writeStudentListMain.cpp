@@ -8,7 +8,7 @@ using namespace std;
 void writeStudentListMain(Year*& firstYear)
 {
 	fstream output;
-	output.open("StudentListMainDemo.csv", ios::out);
+	output.open("StudentListMain.csv", ios::out);
 	Year*curYear = firstYear;
 	while (curYear != nullptr)
 	{

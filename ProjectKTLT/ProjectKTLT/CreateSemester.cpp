@@ -61,7 +61,6 @@ void addCourse(Course *& firstCourse)
     cin >> newCourse->session1;
     cout << "\nInput session 2 of this course: ";
     cin >> newCourse->session2;
-    getline(cin, newCourse->session2);
     newCourse->next = firstCourse;
     firstCourse = newCourse;
 }

@@ -159,6 +159,7 @@ void updateClass(Year*& firstYear)
         cout <<"\n Choose 1 to update a new class for other year";
         cout <<"\n Choose 2 to update a new class for same year";
         cout <<"\n Choose 0 to finish";
+        cout << "\n Your choice: ";
         cin >> n; 
 
     }
