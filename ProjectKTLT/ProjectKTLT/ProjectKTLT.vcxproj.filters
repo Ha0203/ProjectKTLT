@@ -103,9 +103,6 @@
     <None Include="UserList.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="StudentListMainDemo.csv">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="22CLC01.csv">
       <Filter>Resource Files</Filter>
     </None>
@@ -133,25 +130,13 @@
     <None Include="24CLC03.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="UserListDemo.csv">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="CourseList.csv">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="SemesterList.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="SemesterListDemo.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="CourseListDemo.csv">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="CourseStudentList.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="CourseStudentListDemo.csv">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="2021-2022Fall001.csv">
@@ -164,6 +149,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="2022-2023Fall007.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="2022-2023Fall008.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

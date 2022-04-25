@@ -103,7 +103,7 @@ void viewStuCourse(Year* year)
 	}
 	cout << "Which semester you want to access: ";
 	getline(cin, temp);
-	Semester* cur = year->firstSemester;
+	Semester* cur = cur1->firstSemester;
 	while (cur && cur->nameSemester != temp)
 		cur = cur->next;
 	if (!cur)
@@ -111,10 +111,10 @@ void viewStuCourse(Year* year)
 		cout << "\nInvalid semester! Please try again.";
 		return;
 	}
-	cout << "Which course you want to see the list of students: ";
+	cout << "Input course ID you want to see the list of students: ";
 	getline(cin, temp);
 	Course* cur2 = cur->firstCourse;
-	while (cur2 && cur2->courseName != temp)
+	while (cur2 && cur2->courseID != temp)
 		cur2 = cur2->next;
 	if (!cur2)
 	{

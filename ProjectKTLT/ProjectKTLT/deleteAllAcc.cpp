@@ -6,10 +6,31 @@
 using namespace std;
 void deleteAllAcc(Account*& pAcc)
 {
-	while (pAcc != nullptr)
+	Account* curAcc = pAcc;
+	while (curAcc != nullptr)
 	{
-		Account* tempAcc = pAcc;
-		pAcc = pAcc->next;
+		Student* curInfo = curAcc->myInfo;
+		if (curInfo != nullptr)
+		{
+			delete curInfo;
+		}
+		Year* curY = curAcc->firstYear;
+		if (curY != nullptr)
+		{
+			Semester* curSe = curY->firstSemester;
+			if (curSe != nullptr)
+			{
+				Course* curCo = curSe->firstCourse;
+				if (curCo != nullptr)
+				{
+					delete curCo;
+				}
+				delete curSe;
+			}
+			delete curY;
+		}
+		Account* tempAcc = curAcc;
+		curAcc = curAcc->next;
 		delete tempAcc;
 	}
 }

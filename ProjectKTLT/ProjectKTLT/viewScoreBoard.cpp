@@ -86,7 +86,7 @@ void updateScore(Year* firstYear)
 	}
 	cout << "Which semester you want to access: ";
 	getline(cin, temp);
-	Semester* cur = firstYear->firstSemester;
+	Semester* cur = cur1->firstSemester;
 	while (cur && cur->nameSemester != temp)
 		cur = cur->next;
 	if (!cur)
@@ -97,7 +97,7 @@ void updateScore(Year* firstYear)
 	cout << "Which course you want to access: ";
 	getline(cin, temp);
 	Course* cur2 = cur->firstCourse;
-	while (cur2 && cur2->courseName != temp)
+	while (cur2 && cur2->courseID != temp)
 		cur2 = cur2->next;
 	if (!cur2)
 	{
@@ -189,8 +189,8 @@ void viewMyScore(Account*userAcc, Year* firstYear)
 	cout << setw(30) << left << "Course Name";
 	cout << setw(23) << left << "Teacher Name";
 	cout << setw(15) << left << "TotalMark";
-	cout << setw(15) << left << "MidtermMark";
 	cout << setw(15) << left << "FinalMark";
+	cout << setw(15) << left << "MidtermMark";
 	cout << endl;
 	cout << "-------------------------------------------------------------------------------------------------------------\n";
 	while (myC)
@@ -200,8 +200,8 @@ void viewMyScore(Account*userAcc, Year* firstYear)
 		cout << setw(30) << left << myC->courseName;
 		cout << setw(23) << left << myC->teacherName;
 		cout << setw(15) << left << myC->mark.total;
-		cout << setw(15) << left << myC->mark.mid;
 		cout << setw(15) << left << myC->mark.final;
+		cout << setw(15) << left << myC->mark.mid;
 		myC = myC->next;
 	}
 }

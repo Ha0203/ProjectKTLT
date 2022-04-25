@@ -172,6 +172,7 @@
     <None Include="2022-2023Fall005.csv" />
     <None Include="2022-2023Fall006.csv" />
     <None Include="2022-2023Fall007.csv" />
+    <None Include="2022-2023Fall008.csv" />
     <None Include="21CLC02.csv" />
     <None Include="22CLC01.csv" />
     <None Include="22CLC02.csv" />
@@ -183,15 +184,10 @@
     <None Include="24CLC02.csv" />
     <None Include="24CLC03.csv" />
     <None Include="CourseList.csv" />
-    <None Include="CourseListDemo.csv" />
     <None Include="CourseStudentList.csv" />
-    <None Include="CourseStudentListDemo.csv" />
     <None Include="SemesterList.csv" />
-    <None Include="SemesterListDemo.csv" />
     <None Include="StudentListMain.csv" />
-    <None Include="StudentListMainDemo.csv" />
     <None Include="UserList.csv" />
-    <None Include="UserListDemo.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
