@@ -9,11 +9,6 @@ void deleteAllAcc(Account*& pAcc)
 	Account* curAcc = pAcc;
 	while (curAcc != nullptr)
 	{
-		Student* curInfo = curAcc->myInfo;
-		if (curInfo != nullptr)
-		{
-			delete curInfo;
-		}
 		Year* curY = curAcc->firstYear;
 		if (curY != nullptr)
 		{
